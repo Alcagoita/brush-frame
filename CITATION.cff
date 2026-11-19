@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this framework, please cite it as below."
+title: "Human-led AI development framework"
+type: software
+authors:
+  - family-names: "Nascimento"
+    given-names: "Olegário"
+version: "0.2"
+date-released: "2026-11-19"
+doi: "10.5281/zenodo.24358099"
+license: CC-BY-4.0
+repository-code: "https://github.com/Alcagoita/human-led-ai-framework"
+abstract: "A step-by-step way to build software with AI where people stay in charge, for one person holding every role or a team with one person per step."
+keywords:
+  - AI-assisted software development
+  - software process
+  - framework
+  - human-in-the-loop

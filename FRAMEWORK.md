@@ -1,6 +1,6 @@
 # Human-led AI development framework
 
-By Olegário Nascimento · Version 0.2, draft · 2026-11-19. Changes are listed in the [changelog](#changelog) at the end.
+By Olegário Nascimento · Version 0.2, draft · 2026-11-19 · DOI [10.5281/zenodo.24358099](https://doi.org/10.5281/zenodo.24358099). Changes are listed in the [changelog](#changelog) at the end.
 
 A step-by-step way to build software with AI where people stay in charge. It works for one person holding every role, or a team with one person per step. Each step says why it exists, who does it, what goes in, what comes out, and when it is done.
 

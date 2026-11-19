@@ -1,5 +1,7 @@
 # Human-led AI development framework
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24358099.svg)](https://doi.org/10.5281/zenodo.24358099)
+
 A step-by-step way to build software with AI where people stay in charge. It works for one person holding every role, or for a team with one person per step.
 
 AI analyses, builds and reviews. People decide, merge and test in the real world. A ticket system holds the memory, so every change leads back to a reason.
@@ -21,6 +23,12 @@ AI analyses, builds and reviews. People decide, merge and test in the real world
 ## Status
 
 Version 0.2, draft. See the [changelog](CHANGELOG.md). Proposals for changes are welcome as issues, with the reason.
+
+## How to cite
+
+> Nascimento, O. (2026). *Human-led AI development framework*. Zenodo. https://doi.org/10.5281/zenodo.24358099
+
+This DOI always points to the latest version. Each release also has its own DOI on [Zenodo](https://doi.org/10.5281/zenodo.24358099); v0.2 is [10.5281/zenodo.24358100](https://doi.org/10.5281/zenodo.24358100). GitHub's "Cite this repository" button uses [CITATION.cff](CITATION.cff).
 
 ## Licence
 
