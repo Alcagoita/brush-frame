@@ -9,6 +9,8 @@ AI analyses, builds and reviews. People decide, merge and test in the real world
 **Read the framework:** [FRAMEWORK.md](FRAMEWORK.md)
 **Copy the templates:** [templates/](templates/)
 
+**Set up a project in one command:** [SETUP.md](SETUP.md) — works in Claude Code and Codex.
+
 ## The eight steps
 
 1. **Idea check:** decide whether an idea is worth building.
