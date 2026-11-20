@@ -1,0 +1,16 @@
+# Installed by the framework setup. Replace the step below with your project's unit tests.
+# Keep the job name "test": the merge rules require a check with that name.
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main, develop]
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unit tests
+        run: echo "Add your test command here, e.g. make test."

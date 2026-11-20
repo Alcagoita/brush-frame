@@ -1,0 +1,26 @@
+# Installed by the framework setup. Unit tests on every PR and on pushes to main/develop.
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main, develop]
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f pyproject.toml ]; then pip install -e . || true; fi
+          pip install pytest
+      - name: Unit tests
+        run: |
+          if ls tests test_*.py */test_*.py >/dev/null 2>&1; then pytest -q
+          else echo "No tests yet. Add them with the first ticket that has logic."; fi

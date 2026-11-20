@@ -1,8 +1,9 @@
-Human-led AI development framework
+Brush Frame: a human-led way to build software with AI
 Copyright (c) 2026 Olegário Nascimento
 
-The framework text (all files outside the templates/ folder) is licensed
-under the Creative Commons Attribution 4.0 International licence (CC BY 4.0).
+The framework text (all files outside the templates/, plugin/ and counter/
+folders) is licensed under the Creative Commons Attribution 4.0 International
+licence (CC BY 4.0).
 
 You are free to share and adapt the material for any purpose, including
 commercially, as long as you give appropriate credit, provide a link to the
@@ -10,7 +11,8 @@ licence, and indicate if changes were made.
 
 Full licence text: https://creativecommons.org/licenses/by/4.0/legalcode
 
-The templates in the templates/ folder are dedicated to the public domain
+The templates in the templates/ folder, the setup kit in the plugin/ folder
+and the counter in the counter/ folder are dedicated to the public domain
 under CC0 1.0 Universal. You may copy, modify and use them without asking
 permission or giving credit.
 

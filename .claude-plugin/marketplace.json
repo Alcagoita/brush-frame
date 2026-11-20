@@ -1,0 +1,16 @@
+{
+  "$schema": "https://code.claude.com/schemas/marketplace.json",
+  "name": "human-led-ai-framework",
+  "description": "Brush Frame: a step-by-step way to build software with AI where people stay in charge.",
+  "owner": {
+    "name": "Olegário Nascimento",
+    "url": "https://github.com/Alcagoita/human-led-ai-framework"
+  },
+  "plugins": [
+    {
+      "name": "framework-setup",
+      "source": "./plugin",
+      "description": "Set up a project for Brush Frame: Gitflow, merge rules, CI, ticket keys, AI review, ticket system and a shared rule file. You log in; the AI does the rest."
+    }
+  ]
+}

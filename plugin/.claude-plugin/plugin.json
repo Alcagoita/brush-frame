@@ -1,0 +1,10 @@
+{
+  "name": "framework-setup",
+  "description": "Set up a project for Brush Frame (step 4): Gitflow branches, merge rules, CI with unit tests, ticket-key commits, AI review, Jira or GitHub Issues, secrets protection and a shared AGENTS.md / CLAUDE.md.",
+  "version": "0.3.0",
+  "author": {
+    "name": "Olegário Nascimento"
+  },
+  "homepage": "https://github.com/Alcagoita/human-led-ai-framework",
+  "license": "CC0-1.0"
+}

@@ -1,12 +1,12 @@
 cff-version: 1.2.0
 message: "If you use this framework, please cite it as below."
-title: "Human-led AI development framework"
+title: "Brush Frame: a human-led way to build software with AI"
 type: software
 authors:
   - family-names: "Nascimento"
     given-names: "Olegário"
-version: "0.2"
-date-released: "2026-11-19"
+version: "0.3"
+date-released: "2026-11-20"
 doi: "10.5281/zenodo.24358099"
 license: CC-BY-4.0
 repository-code: "https://github.com/Alcagoita/human-led-ai-framework"
