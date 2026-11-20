@@ -119,17 +119,16 @@ def hero(theme):
             "@keyframes draw{to{stroke-dashoffset:0}}")
     body = [
         f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="19" fill="none" stroke="var(--line)"/>',
-        f'<circle cx="1010" cy="220" r="120" fill="{t["glow"]}" fill-opacity=".6"/>',
         # logo mark + word
         f'<g transform="translate(72 70) scale(.42)" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linecap="round">{LOGO}</g>',
         f'<text x="108" y="100" font-size="20" font-weight="600" fill="var(--ink)" letter-spacing="-.2">Built for Brush</text>',
         f'<text x="72" y="210" font-size="92" font-weight="600" fill="var(--ink)" letter-spacing="-3">Brush Frame</text>',
         f'<text x="74" y="262" font-size="25" font-weight="500" fill="var(--muted)">A human-led way to build software with AI.</text>',
         # "brush." is its own text at a fixed x, so the stroke sits under it whatever the fallback font
-        f'<text x="638" y="336" text-anchor="end" font-size="30" font-weight="600" fill="var(--ink)" letter-spacing="-.5">'
+        f'<text x="74" y="336" textLength="556" lengthAdjust="spacingAndGlyphs" font-size="30" font-weight="600" fill="var(--ink)">'
         f'You build the frame; the AI holds the</text>',
-        f'<text x="646" y="336" font-size="30" font-weight="600" fill="var(--accent)" letter-spacing="-.5">brush.</text>',
-        f'<path class="stroke" d="M 642 352 C 662 346, 690 344, 712 348 S 732 353, 740 349" fill="none" '
+        f'<text x="640" y="336" textLength="84" lengthAdjust="spacingAndGlyphs" font-size="30" font-weight="600" fill="var(--accent)">brush.</text>',
+        f'<path class="stroke" d="M 636 352 C 656 346, 684 344, 706 348 S 724 353, 730 349" fill="none" '
         f'stroke="var(--amber)" stroke-width="6" stroke-linecap="round" stroke-opacity=".75"/>',
         f'<text x="74" y="392" font-size="17" font-weight="500" fill="var(--muted)">Eight steps · two gates · one decider · '
         f'<tspan fill="var(--accent)">people decide, AI makes them faster</tspan></text>',
@@ -170,7 +169,7 @@ def steps(theme):
             body.append(f'<line x1="{x0}" x2="{W-72}" y1="{y-26}" y2="{y-26}" stroke="var(--line)"/>')
         body.append(f'<text x="{x0}" y="{y+12}" font-size="22" font-weight="600" fill="var(--accent)">{n}</text>')
         body.append(f'<text x="{x0+36}" y="{y+12}" font-size="26" font-weight="600" fill="var(--ink)" letter-spacing="-.3">{name}</text>')
-        body.append(f'<text x="{x0+214}" y="{y+12}" font-size="21" fill="var(--muted)">{what}</text>')
+        body.append(f'<text x="{x0+200}" y="{y+12}" font-size="19" fill="var(--muted)">{what}</text>')
         if gate:
             body.append(f'<rect x="{W-120}" y="{y-10}" width="52" height="30" rx="15" fill="none" stroke="var(--accent)"/>'
                         f'<text x="{W-94}" y="{y+11}" text-anchor="middle" font-size="15" font-weight="600" fill="var(--accent)">Gate</text>')
