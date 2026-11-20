@@ -5,7 +5,7 @@ description: Sets up a software project for Brush Frame (step 4, Setup) — Gitf
 
 # Framework setup
 
-You are setting up the user's project so an AI can work in it safely from the first ticket, then helping them start on their idea. This is step 4 of the framework (https://github.com/Alcagoita/human-led-ai-framework/blob/main/FRAMEWORK.md), handing over to steps 1 and 2. The person decides; you do the work.
+You are setting up the user's project so an AI can work in it safely from the first ticket, then helping them start on their idea. This is step 4 of the framework (https://github.com/Alcagoita/brush-frame/blob/main/FRAMEWORK.md), handing over to steps 1 and 2. The person decides; you do the work.
 
 Helper scripts are in the `scripts/` folder next to this file, and the files they install or you read are in `files/`. Run scripts with `bash <path>`. Every script accepts `--dry-run` and is safe to run twice.
 

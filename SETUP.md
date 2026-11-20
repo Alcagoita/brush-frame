@@ -7,8 +7,8 @@ Step 4 of the [framework](FRAMEWORK.md) makes a project safe for AI before the f
 ### Claude Code
 
 ```
-/plugin marketplace add Alcagoita/human-led-ai-framework
-/plugin install framework-setup@human-led-ai-framework
+/plugin marketplace add Alcagoita/brush-frame
+/plugin install framework-setup@brush-frame
 ```
 
 Then, inside your project folder, ask: **"Set up this project with Brush Frame."** (or run the `framework-setup` skill).
@@ -16,10 +16,10 @@ Then, inside your project folder, ask: **"Set up this project with Brush Frame."
 ### Codex
 
 ```bash
-git clone --depth 1 https://github.com/Alcagoita/human-led-ai-framework /tmp/hlaf \
+git clone --depth 1 https://github.com/Alcagoita/brush-frame /tmp/brush-frame \
   && mkdir -p ~/.codex/skills \
-  && cp -R /tmp/hlaf/plugin/skills/framework-setup ~/.codex/skills/ \
-  && rm -rf /tmp/hlaf
+  && cp -R /tmp/brush-frame/plugin/skills/framework-setup ~/.codex/skills/ \
+  && rm -rf /tmp/brush-frame
 ```
 
 Restart Codex in your project folder and ask: **"Set up this project with Brush Frame."**
