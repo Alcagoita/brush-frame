@@ -16,8 +16,8 @@ A step-by-step way to build software with AI where people stay in charge. It wor
 
 AI analyses, builds and reviews. People decide, merge and test in the real world. A ticket system holds the memory, so every change leads back to a reason.
 
-**Read the framework:** [FRAMEWORK.md](FRAMEWORK.md)
-**Copy the templates:** [templates/](templates/)
+- **Read the framework:** [FRAMEWORK.md](FRAMEWORK.md)
+- **Copy the templates:** [templates/](templates/)
 
 ## Start a project with it
 

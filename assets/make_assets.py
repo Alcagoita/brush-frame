@@ -67,10 +67,10 @@ def ring(cx, cy, r, node_r, labels, t, label_size=15):
         return cx + rr * math.cos(a), cy + rr * math.sin(a)
     g = [f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="var(--line)" stroke-width="2"/>']
     # inner arc from step 7 back to step 5 (indices 6 -> 4), bowed toward the centre
-    (x7, y7), (x5, y5) = pt(6, r - node_r - 8), pt(4, r - node_r - 8)
-    (qx, qy) = pt(5, r * 0.55)
-    g.append(f'<path d="M {x7:.1f} {y7:.1f} Q {qx:.1f} {qy:.1f} {x5:.1f} {y5:.1f}" fill="none" '
-             f'stroke="var(--brand)" stroke-opacity=".5" stroke-width="1.5" stroke-dasharray="3 6"/>')
+    (x7, y7), (x5, y5) = pt(6, r - node_r - 10), pt(4, r - node_r - 10)
+    ri = r - node_r - 10
+    g.append(f'<path d="M {x7:.1f} {y7:.1f} A {ri} {ri} 0 0 0 {x5:.1f} {y5:.1f}" fill="none" '
+             f'stroke="var(--brand)" stroke-opacity=".6" stroke-width="1.5" stroke-dasharray="3 6"/>')
     # gates: small diamonds on the ring between step n and n+1
     for gte in GATES:
         a = math.radians(-90 + (gte - 1) * 45 + 22.5)
@@ -119,7 +119,7 @@ def hero(theme):
             "@keyframes draw{to{stroke-dashoffset:0}}")
     body = [
         f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="19" fill="none" stroke="var(--line)"/>',
-        f'<circle cx="1010" cy="220" r="210" fill="{t["glow"]}"/>',
+        f'<circle cx="1010" cy="220" r="120" fill="{t["glow"]}" fill-opacity=".6"/>',
         # logo mark + word
         f'<g transform="translate(72 70) scale(.42)" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linecap="round">{LOGO}</g>',
         f'<text x="108" y="100" font-size="20" font-weight="600" fill="var(--ink)" letter-spacing="-.2">Built for Brush</text>',
@@ -141,10 +141,10 @@ def hero(theme):
 
 def steps(theme):
     t = THEMES[theme]
-    W, H = 1280, 620
+    W, H = 1280, 640
     dur = 20
     css = marker_css("travel", dur) + f".marker{{animation:travel {dur}s cubic-bezier(.65,0,.35,1) infinite}}"
-    cx, cy, r = 330, 315, 200
+    cx, cy, r = 300, 320, 190
     rows = [
         ("1", "Idea check", "Is it worth building?", True),
         ("2", "Design", "Screens, model facts, promises.", True),
@@ -158,21 +158,21 @@ def steps(theme):
     body = [f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="19" fill="none" stroke="var(--line)"/>',
             f'<circle cx="{cx}" cy="{cy}" r="150" fill="{t["glow"]}" fill-opacity=".5"/>',
             ring(cx, cy, r, 24, False, t),
-            f'<text x="{cx}" y="{cy-6}" text-anchor="middle" font-size="30" font-weight="600" fill="var(--ink)" letter-spacing="-.6">Eight steps</text>',
-            f'<text x="{cx}" y="{cy+22}" text-anchor="middle" font-size="16" font-weight="500" fill="var(--muted)">A person decides at each gate</text>',
-            f'<text x="{cx}" y="{cy+46}" text-anchor="middle" font-size="16" font-weight="500" fill="var(--accent)">and merges every change</text>']
-    x0, y0, rh = 680, 92, 60
-    body.append(f'<text x="{x0}" y="62" font-size="15" font-weight="600" fill="var(--accent)">From idea to release</text>')
+            f'<text x="{cx}" y="{cy-8}" text-anchor="middle" font-size="34" font-weight="600" fill="var(--ink)" letter-spacing="-.6">Eight steps</text>',
+            f'<text x="{cx}" y="{cy+24}" text-anchor="middle" font-size="18" font-weight="500" fill="var(--muted)">A person decides at each gate</text>',
+            f'<text x="{cx}" y="{cy+50}" text-anchor="middle" font-size="18" font-weight="500" fill="var(--accent)">and merges every change</text>']
+    x0, y0, rh = 610, 110, 64
+    body.append(f'<text x="{x0}" y="70" font-size="19" font-weight="600" fill="var(--accent)">From idea to release</text>')
     for i, (n, name, what, gate) in enumerate(rows):
         y = y0 + i * rh
         if i:
-            body.append(f'<line x1="{x0}" x2="{W-72}" y1="{y-22}" y2="{y-22}" stroke="var(--line)"/>')
-        body.append(f'<text x="{x0}" y="{y+12}" font-size="16" font-weight="600" fill="var(--accent)">{n}</text>')
-        body.append(f'<text x="{x0+34}" y="{y+12}" font-size="21" font-weight="600" fill="var(--ink)" letter-spacing="-.3">{name}</text>')
-        body.append(f'<text x="{x0+190}" y="{y+12}" font-size="17" fill="var(--muted)">{what}</text>')
+            body.append(f'<line x1="{x0}" x2="{W-72}" y1="{y-26}" y2="{y-26}" stroke="var(--line)"/>')
+        body.append(f'<text x="{x0}" y="{y+12}" font-size="22" font-weight="600" fill="var(--accent)">{n}</text>')
+        body.append(f'<text x="{x0+36}" y="{y+12}" font-size="26" font-weight="600" fill="var(--ink)" letter-spacing="-.3">{name}</text>')
+        body.append(f'<text x="{x0+214}" y="{y+12}" font-size="21" fill="var(--muted)">{what}</text>')
         if gate:
-            body.append(f'<rect x="{W-112}" y="{y-6}" width="40" height="24" rx="12" fill="none" stroke="var(--accent)"/>'
-                        f'<text x="{W-92}" y="{y+11}" text-anchor="middle" font-size="12" font-weight="600" fill="var(--accent)">Gate</text>')
+            body.append(f'<rect x="{W-120}" y="{y-10}" width="52" height="30" rx="15" fill="none" stroke="var(--accent)"/>'
+                        f'<text x="{W-94}" y="{y+11}" text-anchor="middle" font-size="15" font-weight="600" fill="var(--accent)">Gate</text>')
     return wrap(W, H, t, "".join(body), css, "The eight steps of Brush Frame",
                 "Idea check, Design, Planning, Setup, Build loop, Field test, Learn, Release. "
                 "Gates after Idea check and Design, where a person decides. Learn feeds back into the build loop.")
