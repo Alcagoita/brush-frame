@@ -124,7 +124,7 @@ Pigment is a separate tool (https://github.com/Alcagoita/pigment). The framework
 4. **In the cloud:** ask "Which cloud do you already use?"
    - **Cloudflare, or none yet:** clone Pigment to a temporary folder and run `server/setup.sh --project <this project> --dry-run`, show the plan, then run it for real. The person logs in to Cloudflare in the browser; the script creates the database, the team key and the server and writes `.pigment/config.json`. The key is saved to a private file under `~/.pigment/keys/` and never printed: **never open or read that file yourself.** Tell the person to open it, add the key in `/config` under Pigment, and share it with the team privately.
    - **Supabase, Firebase or another:** say plainly that Pigment's server runs on Cloudflare today and the others are planned; offer Cloudflare's free plan or local for now.
-   - Commit `.pigment/config.json` and `.pigment/.gitignore`.
+   - Commit `.pigment/` and `.claude/settings.json` (the script adds Pigment there, so every developer who opens the project is offered it).
 5. Manager view: ask them to set **View** to `manager` in `/config` under Pigment, plus the Jira site, project, email and token for the sprint list (Jira only).
 
 ## Phase 12 — Optional parts
