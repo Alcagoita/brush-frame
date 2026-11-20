@@ -11,7 +11,7 @@ Step 4 of the [framework](FRAMEWORK.md) makes a project safe for AI before the f
 /plugin install framework-setup@human-led-ai-framework
 ```
 
-Then, inside your project folder, ask: **"Set up this project with the framework."** (or run the `framework-setup` skill).
+Then, inside your project folder, ask: **"Set up this project with Brush Frame."** (or run the `framework-setup` skill).
 
 ### Codex
 
@@ -22,7 +22,7 @@ git clone --depth 1 https://github.com/Alcagoita/human-led-ai-framework /tmp/hla
   && rm -rf /tmp/hlaf
 ```
 
-Restart Codex in your project folder and ask: **"Set up this project with the framework."**
+Restart Codex in your project folder and ask: **"Set up this project with Brush Frame."**
 
 ### Any other AI coding tool
 
@@ -76,7 +76,7 @@ If you say yes, it asks where to keep the numbers: in your cloud (needed for a t
 Someone (often the manager) ran the setup; you're joining as a developer:
 
 1. Clone the repository and open it in Claude Code or Codex with the setup kit installed.
-2. Ask: **"Set up this project with the framework."** It sees the project is already set up and only does what's personal to your computer: the commit hook, your logins, the recommended skills.
+2. Ask: **"Set up this project with Brush Frame."** It sees the project is already set up and only does what's personal to your computer: the commit hook, your logins, the recommended skills.
 3. If the project uses Pigment with the team's cloud, ask whoever set it up for the **team key** and add it in `/config` under Pigment, with your name.
 
 Then pick a ticket and start the build loop.
