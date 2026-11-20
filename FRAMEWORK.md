@@ -1,6 +1,8 @@
-# Human-led AI development framework
+# Brush Frame
 
-By Olegário Nascimento · Version 0.2, draft · 2026-11-19 · DOI [10.5281/zenodo.24358099](https://doi.org/10.5281/zenodo.24358099). Changes are listed in the [changelog](#changelog) at the end.
+*A human-led way to build software with AI.* You build the frame; the AI holds the brush.
+
+By Olegário Nascimento · Version 0.3, draft · 2026-11-20 · DOI [10.5281/zenodo.24358099](https://doi.org/10.5281/zenodo.24358099). Changes are listed in the [changelog](#changelog) at the end.
 
 A step-by-step way to build software with AI where people stay in charge. It works for one person holding every role, or a team with one person per step. Each step says why it exists, who does it, what goes in, what comes out, and when it is done.
 
@@ -174,7 +176,9 @@ This way of working needs a lot of thinking ahead, and that can be tiring. Witho
 - [ ] **Merge rules:** a PR is required, checks must pass, and only the decider merges.
 - [ ] **Unit tests** running on every PR.
 - [ ] **AI review** on every PR.
-- [ ] **A rule file for each AI tool** (for example CLAUDE.md for Claude, AGENTS.md for Codex), started from the [starter rule file](templates/starter-rule-file.md) and kept in step. Versioned, privately if needed.
+- [ ] **A rule file for each AI tool** (for example CLAUDE.md for Claude, AGENTS.md for Codex), started from the [starter rule file](templates/starter-rule-file.md) and kept in step: the shared rules in `AGENTS.md`, and `CLAUDE.md` importing it. If one already exists, tidy it instead of replacing it: keep what's there, add what's missing, and remove status copies, rules said twice and rules whose reason is gone. Versioned, privately if needed.
+- [ ] **Memory rules:** say where things go, so every tool files them the same way. Corrections for everyone become rules in the rule file; decisions go in tickets; personal preferences stay in each person's own tool memory; ticket status, keys and tokens go nowhere.
+- [ ] **Skills for what you build:** a few AI skills or plugins that fit the platform (web, mobile, backend), chosen by the person, never installed by default.
 - [ ] **A beta platform:** a way to send test builds to testers before any store release, and to collect their crashes and reports. Firebase is one option; app stores also offer their own testing channels.
 - [ ] **Team only — a measurement platform:** a tool that shows how the team works with AI, such as how AI is used across tickets, cycle time and rework, instead of ranking individuals by output. [Span](https://www.span.app/) is one example.
 - [ ] **Optional — a cost view:** what each prompt, task and sprint costs, for anyone who wants to see it. Never required. [Pigment](https://github.com/Alcagoita/pigment) is one option.
@@ -334,6 +338,8 @@ A made-up plant-watering app wants to let people share a plant with a housemate.
 8. **Release:** version 1.3.0 ships, with notes under Sharing.
 
 ## Adopting it
+
+**Setup in one command:** the setup kit does step 4 from Claude Code or Codex, then asks for the first idea and opens a brainstorm or a design for it. The person only logs in and clicks two installs. See [SETUP.md](SETUP.md).
 
 Start small and add the rest as the project grows.
 

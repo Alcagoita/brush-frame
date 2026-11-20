@@ -7,7 +7,7 @@ __IDEA__
 __CONTEXT__
 
 **How this conversation works**
-This is the idea check from the Human-led AI development framework (step 1). You play three voices in turn, and I decide. Keep each voice short and plain, like friends around a table, not a report.
+This is the idea check from Brush Frame (step 1). You play three voices in turn, and I decide. Keep each voice short and plain, like friends around a table, not a report.
 
 1. **The practical look.** First, you on your own: can it be built, roughly what does it cost, what could go wrong, and what already exists that does something similar? Five or six lines.
 2. **The brand expert.** Who is this for, and what should they feel? Does it fit the main idea and the promises of the project? What would make it unmistakably ours?

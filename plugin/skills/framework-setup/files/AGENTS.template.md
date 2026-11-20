@@ -1,6 +1,6 @@
 # <Project> — rules for the AI
 
-Read by every AI tool in this project. `CLAUDE.md` imports this file, so Claude Code and Codex follow the same rules. Built on the Human-led AI development framework: https://github.com/Alcagoita/human-led-ai-framework
+Read by every AI tool in this project. `CLAUDE.md` imports this file, so Claude Code and Codex follow the same rules. Built on Brush Frame: https://github.com/Alcagoita/human-led-ai-framework
 
 ## What this product is
 <Two or three sentences: the main idea.>

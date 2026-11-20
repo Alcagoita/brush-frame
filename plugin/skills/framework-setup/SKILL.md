@@ -1,6 +1,6 @@
 ---
 name: framework-setup
-description: Sets up a software project for the Human-led AI development framework (step 4, Setup) — Gitflow branches, merge rules, CI with unit tests, ticket-key commits, AI review, ticket system (Jira or GitHub Issues), secrets protection and a practice ticket — then takes the first idea, suggests skills for what is being built (web, mobile, backend), creates or tidies the shared AGENTS.md/CLAUDE.md rule file and its memory rules, and opens a brainstorm or design chat for the idea. Use when the user asks to set up, bootstrap or configure a project with this framework. The user only logs in, creates accounts and clicks app installs; you do the rest.
+description: Sets up a software project for Brush Frame (step 4, Setup) — Gitflow branches, merge rules, CI with unit tests, ticket-key commits, AI review, ticket system (Jira or GitHub Issues), secrets protection and a practice ticket — then takes the first idea, suggests skills for what is being built (web, mobile, backend), creates or tidies the shared AGENTS.md/CLAUDE.md rule file and its memory rules, and opens a brainstorm or design chat for the idea. Use when the user asks to set up, bootstrap or configure a project with this framework. The user only logs in, creates accounts and clicks app installs; you do the rest.
 ---
 
 # Framework setup

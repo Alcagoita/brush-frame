@@ -7,7 +7,7 @@ __IDEA__
 __CONTEXT__
 
 **How we'll work**
-This is the design step of the Human-led AI development framework (step 2). Ask me one question at a time and draw as we go. Start with just this:
+This is the design step of Brush Frame (step 2). Ask me one question at a time and draw as we go. Start with just this:
 
 > Who is the first person to open it, and what is the one thing they should be able to do in their first ten seconds?
 

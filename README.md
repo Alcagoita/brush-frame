@@ -1,4 +1,6 @@
-# Human-led AI development framework
+# Brush Frame
+
+*A human-led way to build software with AI.* Built for [Brush](https://brushaway.app), open for anyone.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24358099.svg)](https://doi.org/10.5281/zenodo.24358099)
 
@@ -24,11 +26,11 @@ AI analyses, builds and reviews. People decide, merge and test in the real world
 
 ## Status
 
-Version 0.2, draft. See the [changelog](CHANGELOG.md). Proposals for changes are welcome as issues, with the reason.
+Version 0.3, draft. See the [changelog](CHANGELOG.md). Proposals for changes are welcome as issues, with the reason.
 
 ## How to cite
 
-> Nascimento, O. (2026). *Human-led AI development framework*. Zenodo. https://doi.org/10.5281/zenodo.24358099
+> Nascimento, O. (2026). *Brush Frame: a human-led way to build software with AI*. Zenodo. https://doi.org/10.5281/zenodo.24358099
 
 This DOI always points to the latest version. Each release also has its own DOI on [Zenodo](https://doi.org/10.5281/zenodo.24358099); v0.2 is [10.5281/zenodo.24358100](https://doi.org/10.5281/zenodo.24358100). GitHub's "Cite this repository" button uses [CITATION.cff](CITATION.cff).
 
