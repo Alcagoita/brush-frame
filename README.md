@@ -1,8 +1,16 @@
-# Brush Frame
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
+  <img src="assets/hero-light.svg" width="100%" alt="Brush Frame: a human-led way to build software with AI. You build the frame; the AI holds the brush.">
+</picture>
 
-*A human-led way to build software with AI.* Built for [Brush](https://brushaway.app), open for anyone.
+<p>
+  <a href="https://doi.org/10.5281/zenodo.24358099"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.24358099.svg" alt="DOI"></a>
+  <img src="https://img.shields.io/badge/version-0.3-b87524" alt="Version 0.3">
+  <img src="https://img.shields.io/badge/text-CC%20BY%204.0-6b675e" alt="Text CC BY 4.0">
+  <img src="https://img.shields.io/badge/setup%20kit-Claude%20Code%20%C2%B7%20Codex-e8a86a" alt="Setup kit for Claude Code and Codex">
+</p>
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24358099.svg)](https://doi.org/10.5281/zenodo.24358099)
+Built for [Brush](https://brushaway.app), open for anyone.
 
 A step-by-step way to build software with AI where people stay in charge. It works for one person holding every role, or for a team with one person per step.
 
@@ -53,6 +61,14 @@ Numbers stay on your computer (a file in the project, kept out of git) or in you
 
 ## The eight steps
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/steps-dark.svg">
+  <img src="assets/steps-light.svg" width="100%" alt="The eight steps of Brush Frame as a loop: Idea check, Design, Planning, Setup, Build loop, Field test, Learn, Release. A person decides at the gates after Idea check and Design, and merges every change.">
+</picture>
+
+<details>
+<summary>The steps as text</summary>
+
 1. **Idea check:** decide whether an idea is worth building.
 2. **Design:** screens, model facts and product promises.
 3. **Planning:** small tickets with one clear goal each.
@@ -61,6 +77,8 @@ Numbers stay on your computer (a file in the project, kept out of git) or in you
 6. **Field test:** real people, real devices.
 7. **Learn:** every correction becomes a rule.
 8. **Release:** a tagged version with notes.
+
+</details>
 
 ## Status
 
