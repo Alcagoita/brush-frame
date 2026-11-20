@@ -18,8 +18,8 @@ The **setup kit** is a wizard that runs inside your AI tool. It does step 4 (Set
 In Claude Code:
 
 ```
-/plugin marketplace add Alcagoita/human-led-ai-framework
-/plugin install framework-setup@human-led-ai-framework
+/plugin marketplace add Alcagoita/brush-frame
+/plugin install framework-setup@brush-frame
 ```
 
 Then, in your project folder, ask: **"Set up this project with Brush Frame."**

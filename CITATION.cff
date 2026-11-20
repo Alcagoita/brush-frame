@@ -9,7 +9,7 @@ version: "0.3"
 date-released: "2026-11-20"
 doi: "10.5281/zenodo.24358099"
 license: CC-BY-4.0
-repository-code: "https://github.com/Alcagoita/human-led-ai-framework"
+repository-code: "https://github.com/Alcagoita/brush-frame"
 abstract: "A step-by-step way to build software with AI where people stay in charge, for one person holding every role or a team with one person per step."
 keywords:
   - AI-assisted software development
