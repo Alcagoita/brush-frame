@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
-  <img src="assets/hero-light.svg" width="100%" alt="Brush Frame: a human-led way to build software with AI. You build the frame; the AI holds the brush.">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg?v=3">
+  <img src="assets/hero-light.svg?v=3" width="100%" alt="Brush Frame: a human-led way to build software with AI. You build the frame; the AI holds the brush.">
 </picture>
 
 <p>
@@ -62,8 +62,8 @@ Numbers stay on your computer (a file in the project, kept out of git) or in you
 ## The eight steps
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/steps-dark.svg">
-  <img src="assets/steps-light.svg" width="100%" alt="The eight steps of Brush Frame as a loop: Idea check, Design, Planning, Setup, Build loop, Field test, Learn, Release. A person decides at the gates after Idea check and Design, and merges every change.">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/steps-dark.svg?v=3">
+  <img src="assets/steps-light.svg?v=3" width="100%" alt="The eight steps of Brush Frame as a loop: Idea check, Design, Planning, Setup, Build loop, Field test, Learn, Release. A person decides at the gates after Idea check and Design, and merges every change.">
 </picture>
 
 <details>
