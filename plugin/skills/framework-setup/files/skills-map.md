@@ -41,5 +41,6 @@ If a line below fails (a plugin renamed or moved), say so plainly and skip it; n
 | Suggest when | Plugin | Claude Code | Codex |
 |---|---|---|---|
 | Always worth a mention | `code-review` — a review pass before the PR, beside AI review | `claude plugin install code-review@claude-plugins-official` | — |
+| Always worth a mention | `pigment` — what each prompt, task, session and sprint costs, beside the chat; a calm nudge to start fresh when a conversation gets long | `claude plugin marketplace add Alcagoita/pigment` then `claude plugin install pigment@pigment` | — |
 | Handles personal data or payments | `security-guidance` — security checks while writing code | `claude plugin install security-guidance@claude-plugins-official` | — |
 | Already uses Sentry | `sentry` — read errors and issues | `claude plugin install sentry@claude-plugins-official` | — |
