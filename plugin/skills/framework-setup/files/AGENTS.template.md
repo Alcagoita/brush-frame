@@ -31,5 +31,8 @@ Read by every AI tool in this project. `CLAUDE.md` imports this file, so Claude 
 9. Decisions go in tickets and in this file, never only in chat: the next session cannot see the chat.
 <Anything the AI must never do in this project, from the interview.>
 
+## Memory
+Corrections that should hold for everyone become rules here, under Corrections, with why, the ticket and a review date. Decisions go in tickets. Personal preferences stay in each person's own tool memory. Never store ticket status, keys or tokens in any of them.
+
 ## Corrections
 <Rules added in step 7, each as: the rule — Why: … — Source: ticket, date — Review by: date.>
