@@ -177,11 +177,22 @@ This way of working needs a lot of thinking ahead, and that can be tiring. Witho
 - [ ] **A rule file for each AI tool** (for example CLAUDE.md for Claude, AGENTS.md for Codex), started from the [starter rule file](templates/starter-rule-file.md) and kept in step. Versioned, privately if needed.
 - [ ] **A beta platform:** a way to send test builds to testers before any store release, and to collect their crashes and reports. Firebase is one option; app stores also offer their own testing channels.
 - [ ] **Team only — a measurement platform:** a tool that shows how the team works with AI, such as how AI is used across tickets, cycle time and rework, instead of ranking individuals by output. [Span](https://www.span.app/) is one example.
+- [ ] **Optional — a cost view:** what each prompt, task and sprint costs, for anyone who wants to see it. Never required. [Pigment](https://github.com/Alcagoita/pigment) is one option.
 - [ ] **Secrets and access:** keys live in local files outside the repo, never in prompts, chat or rule files. AI tools run with the least access the work needs. Decide what code and notes may be public, and keep the rest private.
 
 **Output:** a repo and ticket system ready for the build loop.
 
 **Done when:** one practice ticket has gone through the whole build loop without a manual workaround.
+
+### Joining a project
+
+Setup runs once per project, usually by whoever owns it. Someone joining later only sets up their own computer:
+
+1. Clone the repository and read `AGENTS.md` (the rule file) and the setup report.
+2. Turn on the commit hook for the clone (`git config core.hooksPath .githooks`) and log in to the tools the project uses: GitHub, the ticket system.
+3. Install the skills the setup report recommends, if they help.
+4. If the project shares a cost view or another team tool, ask the setup owner for the access key; keys are passed privately, never through the repository.
+5. Take a first ticket through the build loop.
 
 ## Step 5 — Build loop (per ticket)
 

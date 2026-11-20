@@ -65,6 +65,22 @@ When the frame is up:
 
 The prompt is also copied to your clipboard, in case the chat opens empty.
 
+## Optional: Pigment, to see what the work costs
+
+During setup you're asked once whether you want **Pigment**, a separate tool that shows what each prompt, task and session costs beside the chat, and for a team, the sprint by task and who is working now. **Nothing in the framework needs it.** Say no and it's never mentioned again.
+
+If you say yes, it asks where to keep the numbers: in your cloud (needed for a team; Cloudflare's free plan, set up for you after you log in) or just on this computer (a file in the project, kept out of git). More: https://github.com/Alcagoita/pigment
+
+## Joining a project that's already set up
+
+Someone (often the manager) ran the setup; you're joining as a developer:
+
+1. Clone the repository and open it in Claude Code or Codex with the setup kit installed.
+2. Ask: **"Set up this project with the framework."** It sees the project is already set up and only does what's personal to your computer: the commit hook, your logins, the recommended skills.
+3. If the project uses Pigment with the team's cloud, ask whoever set it up for the **team key** and add it in `/config` under Pigment, with your name.
+
+Then pick a ticket and start the build loop.
+
 ## What it never does
 
 - See a password, token or key. Tokens stay in your terminal; the AI never asks for them in chat.

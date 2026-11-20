@@ -29,7 +29,8 @@ Speak like a calm companion: short, warm, plain. Questions over labels ("What ar
 1. In three or four sentences, say what you will set up and what the person will do themselves (log in to GitHub, maybe create a Jira API token, click Install on CodeRabbit).
 2. Run `scripts/check-tools.sh`. If `git` or `gh` is missing, give the install command for their system and wait.
 3. If `gh` is not logged in, ask the user to run `gh auth login` in their terminal (in Claude Code they can type `! gh auth login`). Wait until `gh auth status` succeeds.
-4. Note whether `CLAUDE.md` or `AGENTS.md` already exist in the project (and any nested ones). You will come back to them in phase 9.
+4. Note whether `CLAUDE.md` or `AGENTS.md` already exist in the project (and any nested ones). You will come back to them in phase 10.
+5. **Already set up?** If the repository already has `.github/ticket-key-pattern` and an `AGENTS.md`, someone set this project up with the framework before. Ask: "This project is already set up. Are you joining it?" On yes, follow **Joining a project** at the end of this file instead of phases 2–13.
 
 ## Phase 2 — Ask (one round, use a question tool if you have one)
 
@@ -41,7 +42,8 @@ Ask these together, with a sensible default for each:
 4. **Just you, or a team?** Solo: no review approval required (the owner cannot approve their own PR). Team: one approval required.
 5. **Where do tasks live?** `github` (GitHub Issues, nothing to sign up for) or `jira`. For Jira, also ask the **project key** (2–10 capital letters, e.g. `APP`) and whether the project already exists.
 6. **Beta testers** (only for mobile or both): now, later, or not needed.
-7. **Anonymous setup count:** "May I send one anonymous count to the framework author when setup finishes? It contains no data about you or the project, only +1." Ask; never assume yes.
+7. **Pigment** (optional, say it plainly): "There's an optional tool, Pigment, that shows what each prompt, task and session costs beside the chat, and for a team, the sprint by task. Nothing in the framework needs it. Want it?" No means no: skip phase 11 and never bring it up again.
+8. **Anonymous setup count:** "May I send one anonymous count to the framework author when setup finishes? It contains no data about you or the project, only +1." Ask; never assume yes.
 
 ## Phase 3 — Install the files
 
@@ -112,12 +114,25 @@ Read `files/rule-file-checklist.md` and follow it.
 3. Either way, include the **Memory** section, so every tool files corrections, decisions and personal preferences in the same places.
 4. Show the files, then commit them on a branch (`<KEY>-0-rule-file` or `0-rule-file`) and open a PR into `develop`.
 
-## Phase 11 — Optional parts
+## Phase 11 — Pigment (only if they said yes)
+
+Pigment is a separate tool (https://github.com/Alcagoita/pigment). The framework never depends on it.
+
+1. Install it: `claude plugin marketplace add Alcagoita/pigment` then `claude plugin install pigment@pigment` (Claude Code only).
+2. Ask: **"Where should Pigment keep the numbers: in your cloud, or just on this computer?"** A team always uses the cloud (the sprint view needs one shared place); for someone alone, say the cloud is safer and local is fine.
+3. **Just on this computer:** write `.pigment/config.json` as `{"version": 1, "storage": "local"}` and `.pigment/.gitignore` with `*.jsonl`. Commit both.
+4. **In the cloud:** ask "Which cloud do you already use?"
+   - **Cloudflare, or none yet:** clone Pigment to a temporary folder and run `server/setup.sh --project <this project> --dry-run`, show the plan, then run it for real. The person logs in to Cloudflare in the browser; the script creates the database, the team key and the server and writes `.pigment/config.json`. The key is saved to a private file under `~/.pigment/keys/` and never printed: **never open or read that file yourself.** Tell the person to open it, add the key in `/config` under Pigment, and share it with the team privately.
+   - **Supabase, Firebase or another:** say plainly that Pigment's server runs on Cloudflare today and the others are planned; offer Cloudflare's free plan or local for now.
+   - Commit `.pigment/config.json` and `.pigment/.gitignore`.
+5. Manager view: ask them to set **View** to `manager` in `/config` under Pigment, plus the Jira site, project, email and token for the sprint list (Jira only).
+
+## Phase 12 — Optional parts
 
 - **Beta testers** (if they said now): explain the options (Firebase App Distribution, Google Play internal testing, TestFlight). For Firebase, ask them to run `firebase login`, then help add the app with `firebase apps:create`. Store accounts need fees and identity checks: link them and stop.
 - **Team only, measurement:** suggest a platform that shows how the team uses AI, not individual output (Span, https://www.span.app/, is one example). Account and connections are the user's.
 
-## Phase 12 — Talk it through, or start sketching
+## Phase 13 — Talk it through, or start sketching
 
 1. Ask: **"Want to talk it through first, or start sketching?"**
    - **Talk it through**: a brainstorm with a brand expert and a UX designer already at the table.
@@ -128,8 +143,23 @@ Read `files/rule-file-checklist.md` and follow it.
    `scripts/open-idea.sh --mode <brainstorm|design> --where <claude|chatgpt> --idea-file <file> --context-file <file> --ticket <ticket ref>`
    It opens a new chat already started and copies the prompt to the clipboard in case the chat opens empty. Delete the temporary files afterwards.
 
-## Phase 13 — Report, count, close
+## Phase 14 — Report, count, close
 
-1. Write `SETUP_REPORT.md`: the framework's step 4 checklist, each item ticked or marked with what is still waiting on the user and the exact link; the skills installed; the rule file created or updated. Commit it in its own PR.
+1. Write `SETUP_REPORT.md`: the framework's step 4 checklist, each item ticked or marked with what is still waiting on the user and the exact link; the skills installed; the rule file created or updated; where Pigment keeps its numbers, if they chose it. End it with a **For developers joining** section: install the AI tool, clone the repo, run the setup skill (it finds the project already set up), and, if Pigment's numbers live in the cloud, ask the setup owner for the team key. Commit it in its own PR.
 2. Only if the user said yes in phase 2: run `scripts/count-install.sh`. It sends one request with no body and no project data. If it fails, ignore it; it never blocks setup.
 3. Close with one line in the same voice, e.g. "It's open in your browser. When you've decided, paste the outcome into <ticket> — I'll be here for the next step." Then a short list of anything still waiting on them.
+
+## Joining a project
+
+The project was set up already; this person is joining it, usually as a developer. Do only what is personal to their computer. Change nothing shared without asking.
+
+1. Read `SETUP_REPORT.md` and `AGENTS.md` so you know the ticket system, the branch rules and the recommended skills.
+2. Run `scripts/check-tools.sh`; make sure `gh` is logged in.
+3. Turn on the commit hook for this clone: `git config core.hooksPath .githooks`.
+4. Ticket system access: GitHub Issues needs nothing more. Jira: send them to the project's Jira site to accept the invite, and, only if they will use the scripts, set the `JIRA_*` variables in their own terminal.
+5. Offer the skills listed in `SETUP_REPORT.md`, with the same rule: at most four, installed only on a yes.
+6. **Pigment, only if the project uses it** (`.pigment/config.json` exists): install it, then
+   - `"storage": "cloud"`: "This project keeps its numbers in the team's cloud. Ask whoever set it up for the team key, then add it in `/config` under Pigment, with your name." Pigment shows the same steps in its pane and keeps counting until the key is in.
+   - `"storage": "local"`: nothing to do; it counts on their computer.
+7. Show them the framework's build loop in three lines (ticket, branch, PR into `develop`, the decider merges), and offer a first ticket.
+8. Nothing is committed in this path unless they ask.
