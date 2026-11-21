@@ -84,6 +84,12 @@ Numbers stay on your computer (a file in the project, kept out of git) or in you
 
 Version 0.3, draft. See the [changelog](CHANGELOG.md). Proposals for changes are welcome as issues, with the reason.
 
+## Author
+
+**Olegário Nascimento**, Tech Lead and Engineering Manager, building software since 2012.
+
+Brush Frame comes from building [Brush](https://brushaway.app) alone with AI, holding every role: an Android and iOS app, a Wear OS companion, its own place API and database, and its website. Its companion, [Pigment](https://github.com/Alcagoita/pigment), shows what that AI work costs.
+
 ## How to cite
 
 > Nascimento, O. (2026). *Brush Frame: a human-led way to build software with AI*. Zenodo. https://doi.org/10.5281/zenodo.24358099
