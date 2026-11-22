@@ -69,12 +69,15 @@ You still need a subscription to your AI tool.
 
 The setup questions start with **"What are you building?"** — a web app, a mobile app, both, a backend, something else — so the stack, the tests and the suggestions fit.
 
+**No name yet?** The helper asks *"Do you already have a name, or shall we find one after you tell me the idea?"*, suggests a few, and takes a quick look at whether they're taken (not a legal check).
+
 When the frame is up:
 
 1. **"What's the idea? Say it the way you'd tell a friend."** It goes straight into a decision ticket, so it's safe.
-2. **A few skills that could help** with what you're building, for example Expo and React Native best practices for a mobile app. You pick; nothing is installed without a yes.
-3. **The rule file.** No `CLAUDE.md` yet: a short interview writes one. One already there: "Shall I tidy it and add what's missing, or leave it and start a separate one?"
-4. **"Want to talk it through first, or start sketching?"**
+2. **"Want to see it as a quick mockup?"** A first look at one to three screens opens in your browser, in a calm, simple style unless you describe your own. Then: *"Is it something like this you had in mind?"* What you say goes into the ticket.
+3. **A few skills that could help** with what you're building, for example Expo and React Native best practices for a mobile app. You pick; nothing is installed without a yes.
+4. **The rule file.** No `CLAUDE.md` yet: a short interview writes one. One already there: "Shall I tidy it and add what's missing, or leave it and start a separate one?"
+5. **"Want to talk it through first, or start sketching?"**
    - *Talk it through* opens a new chat (Claude or ChatGPT) already started: a practical look at the idea, then a brand expert and a UX designer, then questions for you. You decide.
    - *Start sketching* opens a new chat with one simple question to begin the design.
    - Or *not now*: the idea waits in its ticket.
