@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+Pigment in the setup: included for a team (the sprint by task, who's working now, time against estimates, worked time to Jira), and offered with its reasons to someone alone (it says when a conversation is getting long, so they can carry on fresh with Optimize now). The project's settings offer it to everyone who opens the project, so it installs from the desktop app too.
+
 ## 0.4 — 2026-11-22
 
 The setup helper, for people who have never built software, tried by a non-technical person on a real project.
