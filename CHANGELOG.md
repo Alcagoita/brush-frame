@@ -1,6 +1,8 @@
 # Changelog
 
-## Unreleased
+## 0.4 — 2026-11-22
+
+The setup helper, for people who have never built software, tried by a non-technical person on a real project.
 
 No name yet? The helper offers to find one after hearing the idea, with a quick look at whether it's taken. After the idea, it offers a first-look mockup in the browser, in Brush's calm design unless the person describes their own, and asks whether it's what they had in mind.
 

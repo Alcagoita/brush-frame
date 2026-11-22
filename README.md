@@ -5,7 +5,7 @@
 
 <p>
   <a href="https://doi.org/10.5281/zenodo.24358099"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.24358099.svg" alt="DOI"></a>
-  <img src="https://img.shields.io/badge/version-0.3-b87524" alt="Version 0.3">
+  <img src="https://img.shields.io/badge/version-0.4-b87524" alt="Version 0.4">
   <img src="https://img.shields.io/badge/text-CC%20BY%204.0-6b675e" alt="Text CC BY 4.0">
   <img src="https://img.shields.io/badge/setup%20kit-Claude%20Code%20%C2%B7%20Codex-e8a86a" alt="Setup kit for Claude Code and Codex">
 </p>
@@ -82,7 +82,7 @@ Numbers stay on your computer (a file in the project, kept out of git) or in you
 
 ## Status
 
-Version 0.3, draft. See the [changelog](CHANGELOG.md). Proposals for changes are welcome as issues, with the reason.
+Version 0.4, draft. See the [changelog](CHANGELOG.md). Proposals for changes are welcome as issues, with the reason.
 
 ## Author
 

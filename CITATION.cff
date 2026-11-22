@@ -5,8 +5,8 @@ type: software
 authors:
   - family-names: "Nascimento"
     given-names: "Olegário"
-version: "0.3"
-date-released: "2026-11-20"
+version: "0.4"
+date-released: "2026-11-22"
 doi: "10.5281/zenodo.24358099"
 license: CC-BY-4.0
 repository-code: "https://github.com/Alcagoita/brush-frame"
