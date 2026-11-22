@@ -10,43 +10,61 @@
   <img src="https://img.shields.io/badge/setup%20kit-Claude%20Code%20%C2%B7%20Codex-e8a86a" alt="Setup kit for Claude Code and Codex">
 </p>
 
-Built for [Brush](https://brushaway.app), open for anyone.
+**Brush Frame** is a human-led way to build software with AI, for one person with an idea or a whole team. Eight steps take an idea to a release: AI does the analysis, the building and the review, and a person makes every decision that matters. A ticket system holds the memory, so every change leads back to a reason.
 
-A step-by-step way to build software with AI where people stay in charge. It works for one person holding every role, or for a team with one person per step.
+**It's proven on a real product.** The [Brush](https://brushaway.app) app (Android, iOS and Wear OS, with its own place API and database) and its website were built with it, by one person holding every role. You don't need the app to use the framework; it's the proof that the framework works.
 
-AI analyses, builds and reviews. People decide, merge and test in the real world. A ticket system holds the memory, so every change leads back to a reason.
+**Not a developer?** The setup helper handles the technical side and asks you simple questions first. You bring the idea and make the decisions.
 
 - **Read the framework:** [FRAMEWORK.md](FRAMEWORK.md)
 - **Copy the templates:** [templates/](templates/)
 
 ## Start a project with it
 
-The **setup kit** is a wizard that runs inside your AI tool. It does step 4 (Setup) for you, then hands your first idea to a brainstorm or a design. **You only log in, create accounts and click two installs.**
+### No prompts to learn
 
-In Claude Code:
+It's not prompting, it's talking. The setup helper asks one question at a time, in plain words, and nothing happens until you say yes:
+
+> *"Have you built software before?"*
+> *"What's the idea? Say it the way you'd tell a friend."*
+> *"Looks good? Say merge, and it goes in."*
+
+### Install
+
+Brush Frame isn't an app you download. The setup helper runs inside the AI tool you build with: Claude Code or Codex.
+
+**In the Claude desktop app** (Code tab, a local session):
+
+1. Click **+** next to the message box, then **Add plugins** (or **Plugins → Browse plugins**).
+2. On the **Marketplaces** tab, add **`Alcagoita/brush-frame`**.
+3. On the **Plugins** tab, find **framework-setup** and click **Install**, then **Install for you**.
+
+**In Claude Code in a terminal:**
 
 ```
 /plugin marketplace add Alcagoita/brush-frame
 /plugin install framework-setup@brush-frame
 ```
 
-Then, in your project folder, ask: **"Set up this project with Brush Frame."**
+**Codex and other tools:** see [SETUP.md](SETUP.md).
 
-Codex and other tools: see [SETUP.md](SETUP.md).
+Then ask: **"Set up this project with Brush Frame."** No project folder yet? It makes one for you.
 
-The wizard:
+### What the helper does
 
-1. Asks **whether you've built software before**, then **what you are building** (web, mobile, both, backend). First time? It speaks in plain words, one question at a time, and makes the technical choices for you.
-2. Shows the plan, runs every script with `--dry-run` first, then sets up: GitHub with `main` + `develop`, merge rules, CI with unit tests, ticket keys on every commit, a task board (Jira, GitHub, or any tool with the four columns), AI review, secrets protection.
-3. Writes or tidies the rule file (`AGENTS.md`, imported by `CLAUDE.md`) and its memory rules, with your approval for each change.
-4. Suggests a few skills for what you build. Nothing is installed without a yes.
-5. Asks once whether you want **Pigment** (below). Optional.
-6. Runs a practice ticket through the whole loop. You say "merge".
-7. Asks for your idea (and helps find a name, if you don't have one), puts it in a decision ticket, shows it as a **quick mockup** if you'd like, and opens a new chat to **talk it through** (a brand expert and a UX designer) or **start sketching**.
+1. Asks **whether you've built software before**. First time? It speaks in plain words, one question at a time, explains each technical word once, runs each step with you, and makes the technical choices from what you're building.
+2. Walks you through what only you can do, for your computer (Mac, Windows or Linux): a free GitHub account, Git and GitHub's tool from their normal installers, and one login in the browser.
+3. Asks **what you are building**, and the name (or helps you find one, with a quick look at whether it's taken).
+4. Shows the plan, runs every script with `--dry-run` first, then sets up: GitHub with `main` and `develop`, merge rules, tests on every change, a task reference on every commit, AI review and secret protection.
+5. Sets up a **task board** with **To do, In development, Testing, Done**: Jira is recommended (it's where this was proven, and free), and GitHub, Trello, Linear or any similar tool works. Where it can't build the board itself, it gives you the steps.
+6. Writes or tidies the project's rule file (`AGENTS.md`, imported by `CLAUDE.md`), including **Gitflow**: the AI runs task branches, releases and urgent fixes by itself, and you only say *merge* or *publish*.
+7. Suggests a few skills for what you build, and asks once whether you want **Pigment** (below). Nothing is installed without a yes.
+8. Runs a practice change through the whole loop, told as a short story. You say *merge*.
+9. Asks for your idea, saves it in a decision ticket, shows it as a **quick mockup** if you'd like (in a calm, simple style unless you describe your own), then opens a chat to **talk it through** with a brand expert and a UX designer, or to **start sketching**.
 
-**Joining a project that is already set up?** Ask the same thing. The wizard sees it and only sets up your computer: the commit hook, your logins, the recommended skills.
+**Joining a project that's already set up?** Ask the same thing. It sees the project is set up and only sets up your computer.
 
-It never sees a password, token or key, never pays or accepts terms for you, and never force-pushes or deletes. Details: [SETUP.md](SETUP.md).
+It never sees a password, token or key, never pays or accepts terms for you, and never force-pushes or deletes. You still need a subscription to your AI tool. Details: [SETUP.md](SETUP.md).
 
 ## Optional: Pigment, what the work costs
 
