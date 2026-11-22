@@ -1,17 +1,27 @@
 # Set up a project in one command
 
-Step 4 of the [framework](FRAMEWORK.md) makes a project safe for AI before the first feature. The setup kit does it for you with your own AI tool. **You only log in, create accounts and click two installs. The AI does the rest.**
+Step 4 of the [framework](FRAMEWORK.md) makes a project safe for AI before the first feature. The setup kit does it for you with your own AI tool, in plain words if you've never built software. **You only log in, create accounts and click a few installs. The AI does the rest.**
 
 ## Install
 
-### Claude Code
+### The Claude desktop app (no terminal)
+
+In the **Code** tab, in a local session:
+
+1. Click **+** next to the message box, then **Add plugins** (or **Plugins → Browse plugins**; if that's missing, **Manage plugins**).
+2. On the **Marketplaces** tab, add **`Alcagoita/brush-frame`**. This is needed once.
+3. On the **Plugins** tab, find **framework-setup**, click **Install**, then **Install for you**. It works in open sessions straight away.
+
+Then ask: **"Set up this project with Brush Frame."** No project folder? It makes one (`~/Projects/<name>`) and tells you how to open it next time. Cloud sessions have no plugin browser; use a local one.
+
+### Claude Code in a terminal
 
 ```
 /plugin marketplace add Alcagoita/brush-frame
 /plugin install framework-setup@brush-frame
 ```
 
-Then, inside your project folder, ask: **"Set up this project with Brush Frame."** (or run the `framework-setup` skill).
+Then ask: **"Set up this project with Brush Frame."** (or run the `framework-setup` skill). No project folder? It makes one.
 
 ### Codex
 
