@@ -36,8 +36,8 @@ Codex and other tools: see [SETUP.md](SETUP.md).
 
 The wizard:
 
-1. Asks **what you are building** (web, mobile, both, backend) and how you work (solo or a team).
-2. Shows the plan, runs every script with `--dry-run` first, then sets up: GitHub with `main` + `develop`, merge rules, CI with unit tests, ticket keys on every commit, Jira or GitHub Issues, AI review, secrets protection.
+1. Asks **whether you've built software before**, then **what you are building** (web, mobile, both, backend). First time? It speaks in plain words, one question at a time, and makes the technical choices for you.
+2. Shows the plan, runs every script with `--dry-run` first, then sets up: GitHub with `main` + `develop`, merge rules, CI with unit tests, ticket keys on every commit, a task board (Jira, GitHub, or any tool with the four columns), AI review, secrets protection.
 3. Writes or tidies the rule file (`AGENTS.md`, imported by `CLAUDE.md`) and its memory rules, with your approval for each change.
 4. Suggests a few skills for what you build. Nothing is installed without a yes.
 5. Asks once whether you want **Pigment** (below). Optional.

@@ -2,8 +2,9 @@
 # Opens a new chat in the browser, already started with the idea: a brainstorm with the
 # personas, or a first design sketch. The prompt is also copied to the clipboard as a fallback.
 # Usage: open-idea.sh --mode brainstorm|design --where claude|chatgpt --idea-file FILE
-#                     [--context-file FILE] [--ticket REF] [--print]
-#   --print   show the prompt and the link, open nothing (for checking)
+#                     [--context-file FILE] [--ticket REF] [--print] [--dry-run]
+#   --print     show the prompt and the link, open nothing (for checking)
+#   --dry-run   say what would happen, open and copy nothing
 set -euo pipefail
 . "$(dirname "$0")/lib.sh"
 
@@ -16,6 +17,7 @@ while [ $# -gt 0 ]; do
     --context-file) CONTEXT_FILE="$2"; shift 2 ;;
     --ticket) TICKET="$2"; shift 2 ;;
     --print) PRINT=1; shift ;;
+    --dry-run) DRY_RUN=1; shift ;;
     *) fail "Unknown option: $1" ;;
   esac
 done
@@ -38,6 +40,12 @@ case "$WHERE" in
 esac
 # Very long links can be cut by the browser; then open a blank chat and rely on the clipboard.
 if [ "${#URL}" -gt 7500 ]; then URL="$BASE"; LONG=1; else LONG=0; fi
+
+if [ "$DRY_RUN" = "1" ]; then
+  plan "open a new $MODE chat in $WHERE (${#URL}-character link$([ "$LONG" = "1" ] && echo ', too long: a blank chat'))"
+  plan "copy the prompt to the clipboard as a fallback"
+  exit 0
+fi
 
 if [ "$PRINT" = "1" ]; then
   printf '%s\n\n--- link (%s characters) ---\n%s\n' "$PROMPT" "${#URL}" "$URL"

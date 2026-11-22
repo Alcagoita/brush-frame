@@ -32,12 +32,15 @@ Clone this repository and tell your tool: *"Follow `plugin/skills/framework-setu
 
 | Item | Done by | You |
 |---|---|---|
-| GitHub repository, `main` + `develop` (default), delete branch after merge | AI | Log in once: `gh auth login` |
+| GitHub repository, `main` + `develop` (default), delete branch after merge | AI | Log in once in the browser |
+| Gitflow (task branches, releases, urgent fixes) written into the rule file, so the AI runs it without being asked | AI | Say "merge" or "publish it" when you're ready |
 | Merge rules: PR required, checks must pass, no direct pushes, the decider merges | AI | Public repo, or a paid GitHub plan for private ones |
 | CI with unit tests (node, python or your own command) | AI | Pick the stack |
 | Ticket key on every commit and PR title (local hook + CI check) | AI | — |
 | Ticket system: GitHub Issues (labels, templates, practice issue) | AI | — |
-| Ticket system: Jira (project, "Won't do", practice ticket) | AI | Create the account and an API token, set it in your terminal |
+| Ticket system: Jira (project, "Won't do", practice ticket) | AI | Create the account. With Claude's Atlassian connector signed in, nothing more; without it, an API token set in your terminal |
+| Ticket system: any other board (Trello, Linear, Asana, …) with To do, In development, Testing, Done | AI guides you | Set up the board with the steps it gives you |
+| A board with the four columns (To do, In development, Testing, Done) | AI where the tool allows, guided steps where it doesn't | Rename or add a column or two, once |
 | AI review with CodeRabbit (config file) | AI | One click to install the app |
 | Secrets: `.gitignore` block, secret scanning and push protection | AI | — |
 | Rule file: `AGENTS.md`, imported by `CLAUDE.md` — created, or an existing one tidied (status copies, duplicates and stale rules proposed for removal, size before/after) | AI interviews you | Answer four questions, approve each change |
@@ -48,6 +51,19 @@ Clone this repository and tell your tool: *"Follow `plugin/skills/framework-setu
 | Practice ticket through the whole loop | AI | Say "merge" |
 | `SETUP_REPORT.md` with the checklist ticked | AI | — |
 | The first idea, into a ticket and a brainstorm or design chat | AI | Tell it the idea, pick one |
+
+## Never built software before?
+
+The first thing the helper asks is **"Have you built software before?"** Say *not yet* or *a little* and it changes how it talks, not what it sets up:
+
+- one question at a time, and it makes the technical choices for you from what you're building, telling you each one in a line;
+- every technical word gets a plain meaning the first time (a *branch* is a copy where a change waits for your OK; a *pull request* is the page where you look at a change before it goes in);
+- it runs each command with you and says what it does first;
+- the practice change is told as a short story, and nothing goes in until you say *merge*.
+
+Before anything is built, the helper walks you through what only you can do, step by step for your computer (Mac, Windows or Linux): creating a free GitHub account, a folder for your project (it makes one if you didn't open one), installing Git and GitHub's `gh` tool from their normal installers, and logging in to GitHub in the browser. It then sets your name on your work and lets Git publish to GitHub with that login, using GitHub's private email so yours isn't shown.
+
+You still need a subscription to your AI tool.
 
 ## Then, the first idea
 
