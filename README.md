@@ -42,7 +42,7 @@ The wizard:
 4. Suggests a few skills for what you build. Nothing is installed without a yes.
 5. Asks once whether you want **Pigment** (below). Optional.
 6. Runs a practice ticket through the whole loop. You say "merge".
-7. Asks for your idea, puts it in a decision ticket, and opens a new chat to **talk it through** (a brand expert and a UX designer) or **start sketching**.
+7. Asks for your idea (and helps find a name, if you don't have one), puts it in a decision ticket, shows it as a **quick mockup** if you'd like, and opens a new chat to **talk it through** (a brand expert and a UX designer) or **start sketching**.
 
 **Joining a project that is already set up?** Ask the same thing. The wizard sees it and only sets up your computer: the commit hook, your logins, the recommended skills.
 

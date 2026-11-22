@@ -52,12 +52,24 @@ The first question of the setup is **"Have you built software before?"** (Yes / 
 3. **Where the project will live.** Look at the folder this session started in (`pwd`, `ls -A`):
    - **Empty:** use it.
    - **A project already** (a git repository, or code and a `package.json` / `pyproject.toml`): ask "Shall I set up this project, here?"
-   - **Not a project folder** (their home folder, Desktop, Documents, Downloads, or a folder of unrelated files; most people start here): don't use it. Say: "I'll make a folder just for your project, so nothing else on your computer gets mixed in." Ask the project's name now (question 3 of phase 2, the name only), then create `~/Projects/<name>` (lowercase, words joined with `-`; `mkdir -p`). If it exists and isn't empty, add `-2`. From here on, run every command and script **inside that folder** (`cd` into it first in each command). If the AI tool asks permission to work in that folder, tell them it's the new project folder and to allow it.
+   - **Not a project folder** (their home folder, Desktop, Documents, Downloads, or a folder of unrelated files; most people start here): don't use it. Say: "I'll make a folder just for your project, so nothing else on your computer gets mixed in." Ask for the name the friendly way (see **A name for it** below), then create `~/Projects/<name>` (lowercase, words joined with `-`; `mkdir -p`). If it exists and isn't empty, add `-2`. From here on, run every command and script **inside that folder** (`cd` into it first in each command). If the AI tool asks permission to work in that folder, tell them it's the new project folder and to allow it.
    - Tell them, in one line, how to come back to it next time: in the Claude desktop app, choose that folder when starting a session; in a terminal, `cd ~/Projects/<name>` then `claude`. Put the same line in `SETUP_REPORT.md`.
 4. If `gh` is not logged in, ask them to run `gh auth login --web --git-protocol https --scopes project` (in Claude Code: `! gh auth login --web --git-protocol https --scopes project`; `project` lets the setup make a GitHub board later without a second login): a code to copy, then **Authorize** in the browser. Wait until `gh auth status` succeeds.
 5. Run `scripts/git-identity.sh --dry-run`, then for real: their name and GitHub's private email on commits (only if Git has none yet), and Git allowed to push with the same login.
 6. Note whether `CLAUDE.md` or `AGENTS.md` already exist in the project (and any nested ones). You will come back to them in phase 10.
 7. **Already set up?** If the repository already has `.github/ticket-key-pattern` and an `AGENTS.md`, someone set this project up with the framework before. Ask: "This project is already set up. Are you joining it?" On yes, follow **Joining a project** at the end of this file instead of phases 2–13.
+
+## A name for it
+
+Naming is often the hardest part, so never make it a blank to fill. Ask: **"Do you already have a name, or shall we find one after you tell me the idea?"**
+
+- **They have one:** use it.
+- **Let's find one:** ask the idea now, with phase 8's question ("What's the idea? Say it the way you'd tell a friend."), and keep the answer for phase 8 so you never ask it twice. Offer **three to five names**: short, easy to say and spell, in the language they speak, each with one line on why it fits. They can pick one, mix two, or ask for more.
+- **Check before they fall in love with it:** "Shall I check if these are taken?" Then:
+  - the GitHub name: `gh repo view <their-login>/<name>` failing means it's free in their account;
+  - if you can search the web, look for an app, product or website already using the name, and say what you found in one line each.
+  Say plainly it's a quick look, not a legal or trademark check. A taken name is a reason to suggest another, not a dead end.
+- The name becomes the folder, the repository and the project's name. It can change later; say so, so it doesn't feel final.
 
 ## Phase 2 — Ask (one round, use a question tool if you have one)
 
@@ -67,7 +79,7 @@ The first question of the setup is **"Have you built software before?"** (Yes / 
 
 1. **What are you building?** A web app, a mobile app, both, a backend or API, or something else (a CLI, a desktop app, a library). Keep the answer: it shapes the stack, the beta question and the skills you suggest later.
 2. **What will it be built with?** Offer a default from the answer above: mobile → React Native with Expo (`node`); web → React or Next.js (`node`); backend → ask between `node` and `python`. Anything else → `other`. If code already exists, read `package.json` / `pyproject.toml` and say what you found instead of asking.
-3. **Project name** and **GitHub repository** (`owner/name`). Default: the project folder's name under their GitHub account (already asked if phase 1 made the folder). **Public or private?** Explain: on GitHub's free plan, merge rules (rulesets) only work on public repositories; private ones need a paid plan.
+3. **Project name** (asked the way **A name for it** says, unless phase 1 already did) and **GitHub repository** (`owner/name`). Default: the project folder's name under their GitHub account. **Public or private?** Explain: on GitHub's free plan, merge rules (rulesets) only work on public repositories; private ones need a paid plan.
 4. **Just you, or a team?** Solo: no review approval required (the owner cannot approve their own PR). Team: one approval required.
 5. **Where do tasks live?** Use the wording in `files/boards.md`: Jira is where the framework was proven and is free; GitHub has tasks and boards built in; any tool with the four columns (To do, In development, Testing, Done) works, such as Trello or Linear. Record `github`, `jira` or `other` (with the tool's name). For Jira, also ask the **project key** (2–10 capital letters, e.g. `APP`) and whether the project already exists. For another tool, ask what a task's reference looks like (`ABC-12` → its key; `#12` → none). Experienced path only: **"Do you work in sprints?"** (yes → a board with a backlog and sprints, e.g. Jira Scrum; no → Kanban).
 6. **Beta testers** (only for mobile or both): now, later, or not needed.
@@ -134,8 +146,14 @@ Walk the user through the practice ticket once: a branch named after it, a one-l
 
 Setup is the frame; the idea is the first stroke.
 
-1. Ask: **"What's the idea? Say it the way you'd tell a friend."** Take whatever comes, even one line.
+1. Ask: **"What's the idea? Say it the way you'd tell a friend."** Take whatever comes, even one line. If they already told you while finding a name, don't ask again: read it back in one line and ask if anything's missing.
 2. Save it in a decision ticket straight away (GitHub Issues: an issue labelled `decision`, titled `Decide: <idea in a few words>`; Jira: a Task with that summary; another tool: give them the title to paste into a new task in **To do**, and ask for its reference). The idea is safe before anything else happens.
+
+3. **A first look.** Most people would rather see something than read about it. Ask: **"Want to see it as a quick mockup?"** (first-time path: always offer it; experienced path: offer it once).
+   - On a yes, make **one HTML file**, `docs/mockups/first-look.html`, with one to three screens of the idea: in a phone frame for a mobile app, a browser frame for a website. Use real-looking content from what they said, never lorem ipsum, and mark it clearly as **"A first look. Nothing is built yet."**
+   - **The look:** if they described one (colours, mood, an app they like), follow it. If not, use the calm design in `files/calm-design.md` as the base, and say so: "I used a calm, simple look to start; we can make it yours from here."
+   - Open it in their browser (`open` on macOS, `xdg-open` on Linux, `start` on Windows), then ask: **"Is it something like this you had in mind?"** Take the answer as it comes (yes, close, or "no, more like…"), change the mockup once if they want, and add what they said to the decision ticket, so the design step starts from it.
+   - Commit it on a branch named after the decision ticket and open a pull request into `develop`, with the ticket's reference; merge on their word. On the first-time path, tell it in two lines: "I saved the mockup with your idea. Say merge and it's part of the project."
 
 ## Phase 9 — Skills that help
 
@@ -186,7 +204,7 @@ Pigment is a separate tool (https://github.com/Alcagoita/pigment). The framework
 
 1. Ask: **"Want to talk it through first, or start sketching?"**
    - **Talk it through**: a brainstorm with a brand expert and a UX designer already at the table.
-   - **Start sketching**: straight to the design, one simple question to begin. Mention what they are building ("a first screen for the phone").
+   - **Start sketching**: straight to the design, one simple question to begin. If there's a first-look mockup, start from it and from what they said about it. Mention what they are building ("a first screen for the phone").
    - **Not now**: it's saved in the ticket; it can wait.
 2. Ask where, once: "Open it in Claude or in ChatGPT?" Default to Claude in Claude Code and ChatGPT in Codex. Offer "right here" too: then run the same conversation in this session instead of opening a window.
 3. Write the idea to a temporary file, and the context (what they are building, the main idea, promises and model facts from `AGENTS.md`) to another, then run:
