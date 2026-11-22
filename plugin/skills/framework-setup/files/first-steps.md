@@ -8,7 +8,7 @@ In Claude Code, the person can run a command themselves by typing `!` and the co
 
 1. **A GitHub account** (free): https://github.com/signup. They create it; you never do.
 2. **The AI tool and a subscription**: Claude Code (the Claude desktop app, Code tab, or the terminal) or Codex.
-3. **An empty folder for the project**, opened in the AI tool: "Make a new folder, for example `my-app` in Documents, and open it in Claude Code." The setup works inside that folder.
+3. **A folder for the project.** Nothing to do: if they started the AI tool in their home folder, Desktop or anywhere that isn't a project, the setup makes `~/Projects/<name>` and works there. Afterwards, tell them how to come back to it (the desktop app: choose that folder when starting a session; a terminal: `cd ~/Projects/<name>` then `claude`).
 
 ## Mac
 

@@ -61,7 +61,7 @@ The first thing the helper asks is **"Have you built software before?"** Say *no
 - it runs each command with you and says what it does first;
 - the practice change is told as a short story, and nothing goes in until you say *merge*.
 
-Before anything is built, the helper walks you through what only you can do, step by step for your computer (Mac, Windows or Linux): creating a free GitHub account, installing Git and GitHub's `gh` tool from their normal installers, and logging in to GitHub in the browser. It then sets your name on your work and lets Git publish to GitHub with that login, using GitHub's private email so yours isn't shown.
+Before anything is built, the helper walks you through what only you can do, step by step for your computer (Mac, Windows or Linux): creating a free GitHub account, a folder for your project (it makes one if you didn't open one), installing Git and GitHub's `gh` tool from their normal installers, and logging in to GitHub in the browser. It then sets your name on your work and lets Git publish to GitHub with that login, using GitHub's private email so yours isn't shown.
 
 You still need a subscription to your AI tool.
 

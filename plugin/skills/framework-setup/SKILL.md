@@ -48,11 +48,16 @@ The first question of the setup is **"Have you built software before?"** (Yes / 
 
 0. Ask **"Have you built software before?"** (Yes / A little / Not yet). Remember the answer: A little or Not yet means the first-time path (see **First time? Plain words**).
 1. In three or four sentences (first-time: three plain ones, e.g. "I'll set up a safe place for your project online and the checks that keep it working. You'll log in to GitHub once and say yes at a few points. Then we'll talk about your idea."), say what you will set up and what the person will do themselves (log in to GitHub, maybe create a Jira API token, click Install on CodeRabbit).
-2. Run `scripts/check-tools.sh`. If `git` or `gh` is missing, walk them through installing it with `files/first-steps.md` (the part for their computer), then run the check again. If the folder isn't empty and isn't theirs to change, stop and ask; on the first-time path, make sure they opened a new, empty folder.
-3. If `gh` is not logged in, ask them to run `gh auth login --web --git-protocol https` (in Claude Code: `! gh auth login --web --git-protocol https`): a code to copy, then **Authorize** in the browser. Wait until `gh auth status` succeeds.
-4. Run `scripts/git-identity.sh --dry-run`, then for real: their name and GitHub's private email on commits (only if Git has none yet), and Git allowed to push with the same login.
-5. Note whether `CLAUDE.md` or `AGENTS.md` already exist in the project (and any nested ones). You will come back to them in phase 10.
-6. **Already set up?** If the repository already has `.github/ticket-key-pattern` and an `AGENTS.md`, someone set this project up with the framework before. Ask: "This project is already set up. Are you joining it?" On yes, follow **Joining a project** at the end of this file instead of phases 2–13.
+2. Run `scripts/check-tools.sh`. If `git` or `gh` is missing, walk them through installing it with `files/first-steps.md` (the part for their computer), then run the check again.
+3. **Where the project will live.** Look at the folder this session started in (`pwd`, `ls -A`):
+   - **Empty:** use it.
+   - **A project already** (a git repository, or code and a `package.json` / `pyproject.toml`): ask "Shall I set up this project, here?"
+   - **Not a project folder** (their home folder, Desktop, Documents, Downloads, or a folder of unrelated files; most people start here): don't use it. Say: "I'll make a folder just for your project, so nothing else on your computer gets mixed in." Ask the project's name now (question 3 of phase 2, the name only), then create `~/Projects/<name>` (lowercase, words joined with `-`; `mkdir -p`). If it exists and isn't empty, add `-2`. From here on, run every command and script **inside that folder** (`cd` into it first in each command). If the AI tool asks permission to work in that folder, tell them it's the new project folder and to allow it.
+   - Tell them, in one line, how to come back to it next time: in the Claude desktop app, choose that folder when starting a session; in a terminal, `cd ~/Projects/<name>` then `claude`. Put the same line in `SETUP_REPORT.md`.
+4. If `gh` is not logged in, ask them to run `gh auth login --web --git-protocol https` (in Claude Code: `! gh auth login --web --git-protocol https`): a code to copy, then **Authorize** in the browser. Wait until `gh auth status` succeeds.
+5. Run `scripts/git-identity.sh --dry-run`, then for real: their name and GitHub's private email on commits (only if Git has none yet), and Git allowed to push with the same login.
+6. Note whether `CLAUDE.md` or `AGENTS.md` already exist in the project (and any nested ones). You will come back to them in phase 10.
+7. **Already set up?** If the repository already has `.github/ticket-key-pattern` and an `AGENTS.md`, someone set this project up with the framework before. Ask: "This project is already set up. Are you joining it?" On yes, follow **Joining a project** at the end of this file instead of phases 2–13.
 
 ## Phase 2 — Ask (one round, use a question tool if you have one)
 
@@ -62,7 +67,7 @@ The first question of the setup is **"Have you built software before?"** (Yes / 
 
 1. **What are you building?** A web app, a mobile app, both, a backend or API, or something else (a CLI, a desktop app, a library). Keep the answer: it shapes the stack, the beta question and the skills you suggest later.
 2. **What will it be built with?** Offer a default from the answer above: mobile → React Native with Expo (`node`); web → React or Next.js (`node`); backend → ask between `node` and `python`. Anything else → `other`. If code already exists, read `package.json` / `pyproject.toml` and say what you found instead of asking.
-3. **Project name** and **GitHub repository** (`owner/name`). Default: the current folder name under their GitHub account. **Public or private?** Explain: on GitHub's free plan, merge rules (rulesets) only work on public repositories; private ones need a paid plan.
+3. **Project name** and **GitHub repository** (`owner/name`). Default: the project folder's name under their GitHub account (already asked if phase 1 made the folder). **Public or private?** Explain: on GitHub's free plan, merge rules (rulesets) only work on public repositories; private ones need a paid plan.
 4. **Just you, or a team?** Solo: no review approval required (the owner cannot approve their own PR). Team: one approval required.
 5. **Where do tasks live?** Use the wording in `files/boards.md`: Jira is where the framework was proven and is free; GitHub has tasks and boards built in; any tool with the four columns (To do, In development, Testing, Done) works, such as Trello or Linear. Record `github`, `jira` or `other` (with the tool's name). For Jira, also ask the **project key** (2–10 capital letters, e.g. `APP`) and whether the project already exists. For another tool, ask what a task's reference looks like (`ABC-12` → its key; `#12` → none). Experienced path only: **"Do you work in sprints?"** (yes → a board with a backlog and sprints, e.g. Jira Scrum; no → Kanban).
 6. **Beta testers** (only for mobile or both): now, later, or not needed.
