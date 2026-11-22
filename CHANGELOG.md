@@ -4,7 +4,7 @@
 
 The setup helper now asks first whether you've built software before. For a first-timer it speaks in plain words, one question at a time, gives each technical word a plain meaning, runs each command with you, decides the technical choices from what you're building, and tells the practice change as a short story. Jira setup uses Claude's Atlassian connector when it's signed in, with the API token only as a fallback.
 
-Tasks can live anywhere with a workflow: Jira (recommended, where the framework was proven), GitHub, Trello, Linear or another tool, on a board with To do, In development, Testing and Done; where the setup can't build the board, it gives the steps. First steps per computer (Mac, Windows, Linux) are written out, and a new script sets your commit name and GitHub's private email and lets Git push with your GitHub login.
+Tasks can live anywhere with a workflow: Jira (recommended, where the framework was proven), GitHub, Trello, Linear or another tool, on a board with To do, In development, Testing and Done; where the setup can't build the board, it gives the steps. The rule file now spells out Gitflow step by step (task branches, releases with tags and notes, urgent fixes), so the AI runs it without guidance and the person only says merge or publish. First steps per computer (Mac, Windows, Linux) are written out, and a new script sets your commit name and GitHub's private email and lets Git push with your GitHub login.
 
 ## 0.3 — 2026-11-20
 

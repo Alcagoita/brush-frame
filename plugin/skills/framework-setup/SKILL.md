@@ -22,6 +22,7 @@ The first question of the setup is **"Have you built software before?"** (Yes / 
   - **repository**: the project's folder online, with its whole history;
   - **commit**: a saved step in that history;
   - **branch**: a copy where a change waits for your OK;
+  - **the two lanes** (`develop` and `main`): one where finished work comes together, one for what's published. Say it once, when the repository is created; after that you run them yourself (the rule file's Gitflow section) and never ask the person to pick or name a branch;
   - **pull request (PR)**: the page where you look at a change before it goes in;
   - **merge**: saying yes, so the change goes in;
   - **tests** and **checks**: small programs that make sure nothing broke, run on every change;

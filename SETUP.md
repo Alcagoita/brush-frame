@@ -32,7 +32,8 @@ Clone this repository and tell your tool: *"Follow `plugin/skills/framework-setu
 
 | Item | Done by | You |
 |---|---|---|
-| GitHub repository, `main` + `develop` (default), delete branch after merge | AI | Log in once: `gh auth login` |
+| GitHub repository, `main` + `develop` (default), delete branch after merge | AI | Log in once in the browser |
+| Gitflow (task branches, releases, urgent fixes) written into the rule file, so the AI runs it without being asked | AI | Say "merge" or "publish it" when you're ready |
 | Merge rules: PR required, checks must pass, no direct pushes, the decider merges | AI | Public repo, or a paid GitHub plan for private ones |
 | CI with unit tests (node, python or your own command) | AI | Pick the stack |
 | Ticket key on every commit and PR title (local hook + CI check) | AI | — |
