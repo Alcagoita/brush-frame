@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+The setup helper now asks first whether you've built software before. For a first-timer it speaks in plain words, one question at a time, gives each technical word a plain meaning, runs each command with you, decides the technical choices from what you're building, and tells the practice change as a short story. Jira setup uses Claude's Atlassian connector when it's signed in, with the API token only as a fallback.
+
 ## 0.3 — 2026-11-20
 
 A name: **Brush Frame**, a human-led way to build software with AI. Setup in one command (the setup kit, for Claude Code and Codex), with the first idea handed to a brainstorm or a design. Setup now covers tidying an existing rule file, memory rules, skills for what you build, an optional cost view, and joining a project that is already set up.

@@ -37,7 +37,7 @@ Clone this repository and tell your tool: *"Follow `plugin/skills/framework-setu
 | CI with unit tests (node, python or your own command) | AI | Pick the stack |
 | Ticket key on every commit and PR title (local hook + CI check) | AI | — |
 | Ticket system: GitHub Issues (labels, templates, practice issue) | AI | — |
-| Ticket system: Jira (project, "Won't do", practice ticket) | AI | Create the account and an API token, set it in your terminal |
+| Ticket system: Jira (project, "Won't do", practice ticket) | AI | Create the account. With Claude's Atlassian connector signed in, nothing more; without it, an API token set in your terminal |
 | AI review with CodeRabbit (config file) | AI | One click to install the app |
 | Secrets: `.gitignore` block, secret scanning and push protection | AI | — |
 | Rule file: `AGENTS.md`, imported by `CLAUDE.md` — created, or an existing one tidied (status copies, duplicates and stale rules proposed for removal, size before/after) | AI interviews you | Answer four questions, approve each change |
@@ -48,6 +48,17 @@ Clone this repository and tell your tool: *"Follow `plugin/skills/framework-setu
 | Practice ticket through the whole loop | AI | Say "merge" |
 | `SETUP_REPORT.md` with the checklist ticked | AI | — |
 | The first idea, into a ticket and a brainstorm or design chat | AI | Tell it the idea, pick one |
+
+## Never built software before?
+
+The first thing the helper asks is **"Have you built software before?"** Say *not yet* or *a little* and it changes how it talks, not what it sets up:
+
+- one question at a time, and it makes the technical choices for you from what you're building, telling you each one in a line;
+- every technical word gets a plain meaning the first time (a *branch* is a copy where a change waits for your OK; a *pull request* is the page where you look at a change before it goes in);
+- it runs each command with you and says what it does first;
+- the practice change is told as a short story, and nothing goes in until you say *merge*.
+
+You still log in to GitHub yourself and need a subscription to your AI tool.
 
 ## Then, the first idea
 
