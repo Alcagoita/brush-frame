@@ -84,8 +84,8 @@ Naming is often the hardest part, so never make it a blank to fill. Ask: **"Do y
 5. **Where do tasks live?** Use the wording in `files/boards.md`: Jira is where the framework was proven and is free; GitHub has tasks and boards built in; any tool with the four columns (To do, In development, Testing, Done) works, such as Trello or Linear. Record `github`, `jira` or `other` (with the tool's name). For Jira, also ask the **project key** (2–10 capital letters, e.g. `APP`) and whether the project already exists. For another tool, ask what a task's reference looks like (`ABC-12` → its key; `#12` → none). Experienced path only: **"Do you work in sprints?"** (yes → a board with a backlog and sprints, e.g. Jira Scrum; no → Kanban).
 6. **Beta testers** (only for mobile or both): now, later, or not needed.
 7. **Pigment**, Brush Frame's companion (https://github.com/Alcagoita/pigment). It runs in Claude Code only: in Codex, say so in one line and skip it.
-   - **A team: it's part of the setup.** Don't ask whether; say what it gives them: "For a team I'll add Pigment. It shows the sprint by task, who's working on what right now, how long each task is taking against its estimate, and quiet sessions where someone may be stuck, and it logs worked time in Jira when a task reaches Testing. It keeps only numbers, never prompts or code." If the decider still says no, respect it, and write it in the report.
-   - **Just them: ask, with the reasons.** "Want Pigment? It sits beside the chat and tells you when the conversation is getting long, so you can carry on in a fresh session without losing anything (**Optimize now**). It also shows what each prompt and task costs. Only numbers, kept on this computer." A no is a no: skip phase 11 and don't bring it up again.
+   - **A team: ask, and recommend it.** It's the easier case: say what it gives a team, then ask. "For a team I'd recommend Pigment. It shows the sprint by task, who's working on what right now, how long each task is taking against its estimate, and quiet sessions where someone may be stuck, and it logs worked time in Jira when a task reaches Testing. It keeps only numbers, never prompts or code. Shall I add it?"
+   - **Just them: ask, with the reasons.** "Want Pigment? It sits beside the chat and tells you when the conversation is getting long, so you can carry on in a fresh session without losing anything (**Optimize now**). It also shows what each prompt and task costs. Only numbers, kept on this computer." Either way, it's only added on a yes. A no is a no: skip phase 11, don't bring it up again, and note it in the report.
 8. **Anonymous setup count:** "May I send one anonymous count to the framework author when setup finishes? It contains no data about you or the project, only +1." Ask; never assume yes.
 
 ## Phase 3 — Install the files
@@ -184,7 +184,7 @@ Read `files/rule-file-checklist.md` and follow it.
 3. Either way, include the **Memory** section, so every tool files corrections, decisions and personal preferences in the same places.
 4. Show the files, then commit them on a branch (`<KEY>-0-rule-file` or `0-rule-file`) and open a PR into `develop`.
 
-## Phase 11 — Pigment (a team, or a yes)
+## Phase 11 — Pigment (only if they said yes)
 
 Pigment is a separate tool (https://github.com/Alcagoita/pigment). The framework never depends on it.
 

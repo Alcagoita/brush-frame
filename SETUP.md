@@ -98,8 +98,8 @@ The prompt is also copied to your clipboard, in case the chat opens empty.
 
 **Pigment** shows, beside the chat, what each prompt, task and session costs, and for a team, the sprint by task, who's working on what now, the time each task takes against its estimate, and worked time logged in Jira at Testing. It keeps only numbers, never prompts or code. More: https://github.com/Alcagoita/pigment
 
-- **A team:** it's part of the setup. The helper says what it gives you and sets it up with the team's cloud (Cloudflare's free plan, after you log in). Your decider can still say no.
-- **Just you:** the helper asks. Pigment tells you when a conversation is getting long, so you can carry on in a fresh session without losing anything (**Optimize now**), and shows what each prompt and task costs. The numbers stay on this computer. Say no and it's never mentioned again.
+- **A team:** the helper recommends it, says what it gives you, and asks. On a yes it sets it up with the team's cloud (Cloudflare's free plan, after you log in).
+- **Just you:** the helper asks too. Pigment tells you when a conversation is getting long, so you can carry on in a fresh session without losing anything (**Optimize now**), and shows what each prompt and task costs. The numbers stay on this computer. Either way it's only added on a yes; say no and it's never mentioned again.
 - It runs in Claude Code (the desktop app or a terminal), not in Codex. Brush Frame itself works without it.
 
 ## Joining a project that's already set up

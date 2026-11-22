@@ -58,7 +58,7 @@ Then ask: **"Set up this project with Brush Frame."** No project folder yet? It 
 4. Shows the plan, runs every script with `--dry-run` first, then sets up: GitHub with `main` and `develop`, merge rules, tests on every change, a task reference on every commit, AI review and secret protection.
 5. Sets up a **task board** with **To do, In development, Testing, Done**: Jira is recommended (it's where this was proven, and free), and GitHub, Trello, Linear or any similar tool works. Where it can't build the board itself, it gives you the steps.
 6. Writes or tidies the project's rule file (`AGENTS.md`, imported by `CLAUDE.md`), including **Gitflow**: the AI runs task branches, releases and urgent fixes by itself, and you only say *merge* or *publish*.
-7. Suggests a few skills for what you build (nothing is installed without a yes), and adds **Pigment** (below): included for a team, asked when it's just you.
+7. Suggests a few skills for what you build (nothing is installed without a yes), and asks whether you want **Pigment** (below): recommended for a team, offered when it's just you.
 8. Runs a practice change through the whole loop, told as a short story. You say *merge*.
 9. Asks for your idea, saves it in a decision ticket, shows it as a **quick mockup** if you'd like (in a calm, simple style unless you describe your own), then opens a chat to **talk it through** with a brand expert and a UX designer, or to **start sketching**.
 
@@ -70,7 +70,7 @@ It never sees a password, token or key, never pays or accepts terms for you, and
 
 [Pigment](https://github.com/Alcagoita/pigment) is a separate Claude Code mod that shows, beside the chat, what each prompt, task and session costs. **Optimize now** writes a summary of the work in progress so you can carry on in a fresh session. For a manager, it shows the sprint by task, who is working now, the time worked on each task, and which tasks are close to their estimate. It can log worked time in Jira when a task reaches Testing.
 
-Numbers stay on your computer (a file in the project, kept out of git) or in your own Cloudflare account, which a team needs. Only numbers are stored, never prompts or code. **For a team, the helper sets it up as part of the setup; on your own, it asks.** Brush Frame itself works without it.
+Numbers stay on your computer (a file in the project, kept out of git) or in your own Cloudflare account, which a team needs. Only numbers are stored, never prompts or code. **The helper always asks first: it recommends it for a team, and offers it when it's just you.** Brush Frame itself works without it.
 
 ```
 /plugin marketplace add Alcagoita/pigment
