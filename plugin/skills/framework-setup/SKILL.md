@@ -73,7 +73,7 @@ Naming is often the hardest part, so never make it a blank to fill. Ask: **"Do y
 
 ## Phase 2 — Ask (one round, use a question tool if you have one)
 
-**First-time path:** ask only questions 1, 3, 5 and 8, one at a time and in plain words. Question 5 is always asked, never decided for them: recommend Jira and let them choose (the wording is in `files/boards.md`, *Which one*). Decide the rest and say each choice in one line: the technical setup from what they are building (question 2), just them (question 4), a simple board with no sprints whatever tool they pick (question 5), beta testers later (question 6), and Pigment not now (question 7; they can add it any time). For question 3, explain public and private plainly: "Public: anyone can see the code, and GitHub's safety rules are free. Private: only you can see it, but some of those rules need a paid GitHub plan." If they are unsure, choose private and say which safety rule they won't have yet.
+**First-time path:** ask only questions 1, 3, 5, 7 and 8, one at a time and in plain words. Question 5 is always asked, never decided for them: recommend Jira and let them choose (the wording is in `files/boards.md`, *Which one*). Decide the rest and say each choice in one line: the technical setup from what they are building (question 2), just them (question 4), a simple board with no sprints whatever tool they pick (question 5), and beta testers later (question 6). For question 3, explain public and private plainly: "Public: anyone can see the code, and GitHub's safety rules are free. Private: only you can see it, but some of those rules need a paid GitHub plan." If they are unsure, choose private and say which safety rule they won't have yet.
 
 **Experienced path:** ask these together, with a sensible default for each:
 
@@ -83,7 +83,9 @@ Naming is often the hardest part, so never make it a blank to fill. Ask: **"Do y
 4. **Just you, or a team?** Solo: no review approval required (the owner cannot approve their own PR). Team: one approval required.
 5. **Where do tasks live?** Use the wording in `files/boards.md`: Jira is where the framework was proven and is free; GitHub has tasks and boards built in; any tool with the four columns (To do, In development, Testing, Done) works, such as Trello or Linear. Record `github`, `jira` or `other` (with the tool's name). For Jira, also ask the **project key** (2–10 capital letters, e.g. `APP`) and whether the project already exists. For another tool, ask what a task's reference looks like (`ABC-12` → its key; `#12` → none). Experienced path only: **"Do you work in sprints?"** (yes → a board with a backlog and sprints, e.g. Jira Scrum; no → Kanban).
 6. **Beta testers** (only for mobile or both): now, later, or not needed.
-7. **Pigment** (optional, say it plainly): "There's an optional tool, Pigment, that shows what each prompt, task and session costs beside the chat, and for a team, the sprint by task. Nothing in the framework needs it. Want it?" No means no: skip phase 11 and never bring it up again.
+7. **Pigment**, Brush Frame's companion (https://github.com/Alcagoita/pigment). It runs in Claude Code only: in Codex, say so in one line and skip it.
+   - **A team: ask, and recommend it.** It's the easier case: say what it gives a team, then ask. "For a team I'd recommend Pigment. It shows the sprint by task, who's working on what right now, how long each task is taking against its estimate, and quiet sessions where someone may be stuck, and it logs worked time in Jira when a task reaches Testing. It keeps only numbers, never prompts or code. Shall I add it?"
+   - **Just them: ask, with the reasons.** "Want Pigment? It sits beside the chat and tells you when the conversation is getting long, so you can carry on in a fresh session without losing anything (**Optimize now**). It also shows what each prompt and task costs. Only numbers, kept on this computer." Either way, it's only added on a yes. A no is a no: skip phase 11, don't bring it up again, and note it in the report.
 8. **Anonymous setup count:** "May I send one anonymous count to the framework author when setup finishes? It contains no data about you or the project, only +1." Ask; never assume yes.
 
 ## Phase 3 — Install the files
@@ -186,19 +188,21 @@ Read `files/rule-file-checklist.md` and follow it.
 
 Pigment is a separate tool (https://github.com/Alcagoita/pigment). The framework never depends on it.
 
-1. Install it: `claude plugin marketplace add Alcagoita/pigment` then `claude plugin install pigment@pigment` (Claude Code only).
-2. Ask: **"Where should Pigment keep the numbers: in your cloud, or just on this computer?"** A team always uses the cloud (the sprint view needs one shared place); for someone alone, say the cloud is safer and local is fine.
-3. **Just on this computer:** write `.pigment/config.json` as `{"version": 1, "storage": "local"}` and `.pigment/.gitignore` with `*.jsonl`. Commit both.
-4. **In the cloud:** ask "Which cloud do you already use?"
+1. **Offer it to everyone who opens this project:** add Pigment to the project's `.claude/settings.json` (create it if missing; keep what's there): `extraKnownMarketplaces.pigment = {"source": {"source": "github", "repo": "Alcagoita/pigment"}}` and `enabledPlugins["pigment@pigment"] = true`. Commit it with `.pigment/` (below). Claude Code then offers to install Pigment when the project is opened, in the desktop app and the terminal alike.
+2. **Install it now, for them:** if `claude` runs in this session's shell, run `claude plugin marketplace add Alcagoita/pigment` then `claude plugin install pigment@pigment`. If not (often in the desktop app), give the clicks: **+ → Add plugins → Marketplaces**, add `Alcagoita/pigment`, then **Plugins → pigment → Install**. Either way the pane opens beside the chat; `/pigment` reopens it.
+3. **Where the numbers live.** A team always uses the cloud (the sprint view needs one shared place). Someone alone: default to **just on this computer** and say so in one line; offer the cloud only if they ask ("safer if this computer goes"). First-time path: don't ask, use this computer.
+4. **Just on this computer:** write `.pigment/config.json` as `{"version": 1, "storage": "local"}` and `.pigment/.gitignore` with `*.jsonl`. Commit both.
+5. **In the cloud:** ask "Which cloud do you already use?"
    - **Cloudflare, or none yet:** clone Pigment to a temporary folder and run `server/setup.sh --project <this project> --dry-run`, show the plan, then run it for real. The person logs in to Cloudflare in the browser; the script creates the database, the team key and the server and writes `.pigment/config.json`. The key is saved to a private file under `~/.pigment/keys/` and never printed: **never open or read that file yourself.** Pigment finds the key on this computer by itself. Tell the person to share it with each developer privately (a password manager or a direct message), never in the repository.
    - **Supabase, Firebase or another:** say plainly that Pigment's server runs on Cloudflare today and the others are planned; offer Cloudflare's free plan or local for now.
-   - Commit `.pigment/` and `.claude/settings.json` (the script adds Pigment there, so every developer who opens the project is offered it).
-5. Manager view: ask them to set **View** to `manager` in `/config` under Pigment. For the sprint list Pigment uses the Atlassian connector already signed in, with nothing to set; only without the connector does it need the Jira site, email and token in `/config`.
+   - Commit `.pigment/` and `.claude/settings.json` (the script also adds Pigment there).
+Commit `.pigment/` and `.claude/settings.json` on a branch (`<KEY>-0-pigment` or `0-pigment`) and open a pull request into `develop`; merge on their word. The branches are protected by now, so never commit them straight to `develop`.
+6. **A team's decider:** ask them to set **View** to `manager` in `/config` under Pigment. For the sprint list Pigment uses the Atlassian connector already signed in, with nothing to set; only without the connector does it need the Jira site, email and token in `/config`.
 
 ## Phase 12 — Optional parts
 
 - **Beta testers** (if they said now): explain the options (Firebase App Distribution, Google Play internal testing, TestFlight). For Firebase, ask them to run `firebase login`, then help add the app with `firebase apps:create`. Store accounts need fees and identity checks: link them and stop.
-- **Team only, measurement:** suggest a platform that shows how the team uses AI, not individual output (Span, https://www.span.app/, is one example). Account and connections are the user's.
+- **Team only, more measurement:** beyond Pigment's sprint view, suggest a platform that shows how the team uses AI, not individual output (Span, https://www.span.app/, is one example). Account and connections are the user's.
 
 ## Phase 13 — Talk it through, or start sketching
 
