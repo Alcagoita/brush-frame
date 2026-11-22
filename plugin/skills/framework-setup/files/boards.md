@@ -16,7 +16,11 @@ Say it plainly, then let the person choose:
 
 > "The framework was proven with **Jira**, and Jira is free for up to 10 people. If you'd rather keep everything in one place, **GitHub** has tasks and boards built in, nothing else to sign up for. And if you already use **Trello**, **Linear** or something similar, that works too: all it needs is those four columns."
 
-First-time path: if they have no preference, use GitHub (no new account). If they already use a tool, use theirs.
+Always ask, on the first-time path too; never decide it for them. **Recommend Jira**, and make the choice easy: if they'd rather not create another account, GitHub is fine; if they already use a tool, use theirs. First-time wording:
+
+> "Where should your tasks live? I'd suggest **Jira**: this way of working was proven there, and it's free. It needs its own account, which takes a minute. Or **GitHub**, which you already have. Or a tool you already use, like Trello."
+
+Jira for a first-timer: they create the free account (https://www.atlassian.com/software/jira/free) and the project in the browser (steps below). So the setup can create tasks there too, suggest connecting Atlassian to Claude once (in the Claude app: **Settings → Connectors → Atlassian**, sign in). Without it, they create the practice task themselves and tell you its reference (`APP-1`).
 
 **No sprints for a first-timer.** Set up a simple board (Kanban: tasks move left to right, no planning cycles). Only on the experienced path, ask "Do you work in sprints?"; a yes means a board with a backlog and sprints (Jira's Scrum template, or the tool's equivalent).
 

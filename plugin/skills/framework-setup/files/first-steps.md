@@ -27,8 +27,8 @@ In Claude Code, the person can run a command themselves by typing `!` and the co
 
 ## Logging in to GitHub (every computer)
 
-1. Run `gh auth login --web --git-protocol https`. It shows a one-time code and opens github.com in the browser.
+1. Run `gh auth login --web --git-protocol https --scopes project`. It shows a one-time code and opens github.com in the browser. (`project` is there so a GitHub board can be made later without logging in again.)
 2. Paste the code, click **Authorize**, and come back.
 3. Run `scripts/git-identity.sh`: it sets their name and GitHub's private email on commits (only if Git doesn't have them yet) and lets Git push with the same login. Without it, the first commit on a new computer fails with "Please tell me who you are", and the first push can ask for a password GitHub no longer accepts.
 
-For a GitHub Projects board (`files/boards.md`), the login also needs the project permission: `gh auth refresh -s project --hostname github.com`, the same browser step once more.
+If they logged in before without `project` and choose a GitHub board, `gh auth refresh -s project --hostname github.com` adds it: the same browser step once more.

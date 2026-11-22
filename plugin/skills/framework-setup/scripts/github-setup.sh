@@ -20,7 +20,7 @@ case "$VIS" in public|private) ;; *) fail "--visibility must be public or privat
 case "$MODE" in solo|team) ;; *) fail "--mode must be solo or team" ;; esac
 
 need git; need gh
-gh auth status >/dev/null 2>&1 || fail "GitHub CLI is not logged in. Run: gh auth login"
+gh auth status >/dev/null 2>&1 || fail "GitHub CLI is not logged in. Run: gh auth login --web --git-protocol https --scopes project"
 git rev-parse --is-inside-work-tree >/dev/null 2>&1 || fail "Run this inside the project's git repository."
 git rev-parse --verify main >/dev/null 2>&1 || fail "No 'main' branch with a commit yet. Commit the setup files on main first."
 

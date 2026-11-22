@@ -16,7 +16,7 @@ done
 
 need git
 need gh
-gh auth status >/dev/null 2>&1 || fail "GitHub isn't logged in yet. Run: gh auth login --web --git-protocol https"
+gh auth status >/dev/null 2>&1 || fail "GitHub isn't logged in yet. Run: gh auth login --web --git-protocol https --scopes project"
 
 say "Getting Git ready to commit and push"
 

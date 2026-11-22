@@ -30,7 +30,7 @@ echo "Logins"
 if command -v gh >/dev/null 2>&1 && gh auth status >/dev/null 2>&1; then
   printf '  ok       GitHub    logged in as %s\n' "$(gh api user -q .login 2>/dev/null || echo '?')"
 else
-  printf '  WAITING  GitHub    run: gh auth login\n'
+  printf '  WAITING  GitHub    run: gh auth login --web --git-protocol https --scopes project\n'
   status=1
 fi
 if [ -n "${JIRA_SITE:-}" ] && [ -n "${JIRA_EMAIL:-}" ] && [ -n "${JIRA_API_TOKEN:-}" ]; then
