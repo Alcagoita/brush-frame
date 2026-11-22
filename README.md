@@ -94,7 +94,7 @@ Brush Frame comes from building [Brush](https://brushaway.app) alone with AI, ho
 
 > Nascimento, O. (2026). *Brush Frame: a human-led way to build software with AI*. Zenodo. https://doi.org/10.5281/zenodo.24358099
 
-This DOI always points to the latest version. Each release also has its own DOI on [Zenodo](https://doi.org/10.5281/zenodo.24358099): v0.3 is [10.5281/zenodo.24407428](https://doi.org/10.5281/zenodo.24407428), v0.2 is [10.5281/zenodo.24358100](https://doi.org/10.5281/zenodo.24358100). GitHub's "Cite this repository" button uses [CITATION.cff](CITATION.cff).
+This DOI always points to the latest version. Each release also has its own DOI on [Zenodo](https://doi.org/10.5281/zenodo.24358099): v0.4 is [10.5281/zenodo.24449191](https://doi.org/10.5281/zenodo.24449191), v0.3 is [10.5281/zenodo.24407428](https://doi.org/10.5281/zenodo.24407428), v0.2 is [10.5281/zenodo.24358100](https://doi.org/10.5281/zenodo.24358100). GitHub's "Cite this repository" button uses [CITATION.cff](CITATION.cff).
 
 ## Licence
 
