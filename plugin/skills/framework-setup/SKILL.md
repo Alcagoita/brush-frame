@@ -47,14 +47,15 @@ The first question of the setup is **"Have you built software before?"** (Yes / 
 
 0. Ask **"Have you built software before?"** (Yes / A little / Not yet). Remember the answer: A little or Not yet means the first-time path (see **First time? Plain words**).
 1. In three or four sentences (first-time: three plain ones, e.g. "I'll set up a safe place for your project online and the checks that keep it working. You'll log in to GitHub once and say yes at a few points. Then we'll talk about your idea."), say what you will set up and what the person will do themselves (log in to GitHub, maybe create a Jira API token, click Install on CodeRabbit).
-2. Run `scripts/check-tools.sh`. If `git` or `gh` is missing, give the install command for their system and wait. First-time: give the download page and walk them through it, then run the check again.
-3. If `gh` is not logged in, ask the user to run `gh auth login` in their terminal (in Claude Code they can type `! gh auth login`). Wait until `gh auth status` succeeds.
-4. Note whether `CLAUDE.md` or `AGENTS.md` already exist in the project (and any nested ones). You will come back to them in phase 10.
-5. **Already set up?** If the repository already has `.github/ticket-key-pattern` and an `AGENTS.md`, someone set this project up with the framework before. Ask: "This project is already set up. Are you joining it?" On yes, follow **Joining a project** at the end of this file instead of phases 2–13.
+2. Run `scripts/check-tools.sh`. If `git` or `gh` is missing, walk them through installing it with `files/first-steps.md` (the part for their computer), then run the check again. If the folder isn't empty and isn't theirs to change, stop and ask; on the first-time path, make sure they opened a new, empty folder.
+3. If `gh` is not logged in, ask them to run `gh auth login --web --git-protocol https` (in Claude Code: `! gh auth login --web --git-protocol https`): a code to copy, then **Authorize** in the browser. Wait until `gh auth status` succeeds.
+4. Run `scripts/git-identity.sh --dry-run`, then for real: their name and GitHub's private email on commits (only if Git has none yet), and Git allowed to push with the same login.
+5. Note whether `CLAUDE.md` or `AGENTS.md` already exist in the project (and any nested ones). You will come back to them in phase 10.
+6. **Already set up?** If the repository already has `.github/ticket-key-pattern` and an `AGENTS.md`, someone set this project up with the framework before. Ask: "This project is already set up. Are you joining it?" On yes, follow **Joining a project** at the end of this file instead of phases 2–13.
 
 ## Phase 2 — Ask (one round, use a question tool if you have one)
 
-**First-time path:** ask only questions 1, 3 and 8, one at a time and in plain words, plus 5 only if they say they already use Jira. Decide the rest and say each choice in one line: the technical setup from what they are building (question 2), just them (question 4), tasks in GitHub (question 5), beta testers later (question 6), and Pigment not now (question 7; they can add it any time). For question 3, explain public and private plainly: "Public: anyone can see the code, and GitHub's safety rules are free. Private: only you can see it, but some of those rules need a paid GitHub plan." If they are unsure, choose private and say which safety rule they won't have yet.
+**First-time path:** ask only questions 1, 3 and 8, one at a time and in plain words, plus 5 only if they say they already use Jira. Decide the rest and say each choice in one line: the technical setup from what they are building (question 2), just them (question 4), tasks in GitHub unless they already use a tool, on a simple board with no sprints (question 5), beta testers later (question 6), and Pigment not now (question 7; they can add it any time). For question 3, explain public and private plainly: "Public: anyone can see the code, and GitHub's safety rules are free. Private: only you can see it, but some of those rules need a paid GitHub plan." If they are unsure, choose private and say which safety rule they won't have yet.
 
 **Experienced path:** ask these together, with a sensible default for each:
 
@@ -62,7 +63,7 @@ The first question of the setup is **"Have you built software before?"** (Yes / 
 2. **What will it be built with?** Offer a default from the answer above: mobile → React Native with Expo (`node`); web → React or Next.js (`node`); backend → ask between `node` and `python`. Anything else → `other`. If code already exists, read `package.json` / `pyproject.toml` and say what you found instead of asking.
 3. **Project name** and **GitHub repository** (`owner/name`). Default: the current folder name under their GitHub account. **Public or private?** Explain: on GitHub's free plan, merge rules (rulesets) only work on public repositories; private ones need a paid plan.
 4. **Just you, or a team?** Solo: no review approval required (the owner cannot approve their own PR). Team: one approval required.
-5. **Where do tasks live?** `github` (GitHub Issues, nothing to sign up for) or `jira`. For Jira, also ask the **project key** (2–10 capital letters, e.g. `APP`) and whether the project already exists.
+5. **Where do tasks live?** Use the wording in `files/boards.md`: Jira is where the framework was proven and is free; GitHub has tasks and boards built in; any tool with the four columns (To do, In development, Testing, Done) works, such as Trello or Linear. Record `github`, `jira` or `other` (with the tool's name). For Jira, also ask the **project key** (2–10 capital letters, e.g. `APP`) and whether the project already exists. For another tool, ask what a task's reference looks like (`ABC-12` → its key; `#12` → none). Experienced path only: **"Do you work in sprints?"** (yes → a board with a backlog and sprints, e.g. Jira Scrum; no → Kanban).
 6. **Beta testers** (only for mobile or both): now, later, or not needed.
 7. **Pigment** (optional, say it plainly): "There's an optional tool, Pigment, that shows what each prompt, task and session costs beside the chat, and for a team, the sprint by task. Nothing in the framework needs it. Want it?" No means no: skip phase 11 and never bring it up again.
 8. **Anonymous setup count:** "May I send one anonymous count to the framework author when setup finishes? It contains no data about you or the project, only +1." Ask; never assume yes.
@@ -71,9 +72,9 @@ The first question of the setup is **"Have you built software before?"** (Yes / 
 
 1. Make sure the folder is a git repository with a `main` branch. If it is empty, `git init -b main`.
 2. Dry run, then real run:
-   `scripts/install-files.sh --stack <node|python|other> --tickets <github|jira> --key <KEY> --mode <solo|team>`
+   `scripts/install-files.sh --stack <node|python|other> --tickets <github|jira|other> [--key <KEY>] --mode <solo|team>` (`--key` for Jira, and for another tool whose tasks look like `KEY-12`)
    It writes the CI workflow (`test` job), the ticket-key check (`ticket-key` job), the PR template, issue templates (GitHub Issues) or ticket templates in `docs/templates/` (Jira), `.coderabbit.yaml`, a `commit-msg` hook in `.githooks/` (on through `core.hooksPath`) and a secrets block in `.gitignore`. Existing files are never overwritten.
-3. Commit on `main` as `<KEY>-0: framework setup` (Jira) or `#0: framework setup` (GitHub Issues). `-0` / `#0` is the setup's own ticket key; the hook accepts it.
+3. Commit on `main` as `<KEY>-0: framework setup` (a key) or `#0: framework setup` (numbered tasks). `-0` / `#0` is the setup's own ticket key; the hook accepts it.
 
 ## Phase 4 — GitHub
 
@@ -82,11 +83,17 @@ Dry run, then real run:
 
 It creates the repository if needed and pushes, creates `develop` and makes it the default branch, turns on delete-branch-on-merge, secret scanning and push protection where the plan allows, and adds one ruleset for `main` and `develop`: no direct pushes, no deletion, a pull request required, checks `test` and `ticket-key` must pass, and only admins (the decider) merge past the rules, through a PR (`gh pr merge --admin`). Report anything the plan refused.
 
-## Phase 5 — Ticket system
+## Phase 5 — Ticket system and its board
 
-**GitHub Issues:** run `scripts/github-issues-setup.sh --repo <owner/name>`. It adds the labels (`decision`, `work`, `feedback`, `bug`, `wont-do`) and opens the practice issue.
+Whatever the tool, the result is a board with **To do, In development, Testing, Done**. `files/boards.md` says, per tool, what the setup does and what the person does in the browser when the setup can't; give those steps one at a time and wait for "done".
+
+**GitHub Issues:** run `scripts/github-issues-setup.sh --repo <owner/name>`. It adds the labels (`decision`, `work`, `feedback`, `bug`, `wont-do`) and opens the practice issue. Then the board: after `gh auth refresh -s project --hostname github.com`, create the project and link it (`files/boards.md`, GitHub), and walk them through its columns.
+
+**Another tool (Trello, Linear, Asana, …):** the setup has no access to it. Walk them through `files/boards.md` for that tool, ask them to create the practice task there and tell you its reference, and use it in phase 7.
 
 **Jira:**
+
+**Jira** (any path ends with the board's columns: `files/boards.md`, Jira; first-time path: the person creates the project in the browser, with those steps).
 
 **Through the Atlassian connector first.** If this session already has an Atlassian connector signed in (an MCP server with Jira tools such as `searchJiraIssuesUsingJql` and `createJiraIssue`), use it and skip the token entirely:
 1. Find the site with `getAccessibleAtlassianResources`, and check the project key exists with a search (`project = "<KEY>"`).
@@ -122,7 +129,7 @@ Walk the user through the practice ticket once: a branch named after it, a one-l
 Setup is the frame; the idea is the first stroke.
 
 1. Ask: **"What's the idea? Say it the way you'd tell a friend."** Take whatever comes, even one line.
-2. Save it in a decision ticket straight away (GitHub Issues: an issue labelled `decision`, titled `Decide: <idea in a few words>`; Jira: a Task with that summary). The idea is safe before anything else happens.
+2. Save it in a decision ticket straight away (GitHub Issues: an issue labelled `decision`, titled `Decide: <idea in a few words>`; Jira: a Task with that summary; another tool: give them the title to paste into a new task in **To do**, and ask for its reference). The idea is safe before anything else happens.
 
 ## Phase 9 — Skills that help
 

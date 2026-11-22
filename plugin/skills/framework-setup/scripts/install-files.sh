@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Writes the framework's guardrail files into the current repository.
-# Usage: install-files.sh --stack node|python|other --tickets github|jira --key KEY --mode solo|team [--dry-run]
+# Usage: install-files.sh --stack node|python|other --tickets github|jira|other [--key KEY] --mode solo|team [--dry-run]
+#   jira: --key is required (KEY-12).  other (Trello, Linear, Asana, ...): --key KEY when the tool's tasks look
+#   like KEY-12 (Linear, YouTrack), none when they're numbered (#12, e.g. Trello card numbers).
 #   --key   Jira project key (e.g. APP). Ignored for GitHub Issues.
 # Existing files are never overwritten; they are reported as "skip".
 set -euo pipefail
@@ -19,9 +21,9 @@ while [ $# -gt 0 ]; do
 done
 
 case "$STACK" in node|python|other) ;; *) fail "--stack must be node, python or other" ;; esac
-case "$TICKETS" in github|jira) ;; *) fail "--tickets must be github or jira" ;; esac
+case "$TICKETS" in github|jira|other) ;; *) fail "--tickets must be github, jira or other" ;; esac
 case "$MODE" in solo|team) ;; *) fail "--mode must be solo or team" ;; esac
-if [ "$TICKETS" = "jira" ]; then
+if [ "$TICKETS" = "jira" ] || { [ "$TICKETS" = "other" ] && [ -n "$KEY" ]; }; then
   echo "$KEY" | grep -Eq '^[A-Z][A-Z0-9]{1,9}$' || fail "--key must be 2-10 capital letters or digits, starting with a letter (e.g. APP)"
 fi
 
@@ -30,7 +32,7 @@ ROOT="$(git rev-parse --show-toplevel)"
 FILES="$(skill_dir)/files"
 
 # Pattern every commit message and PR title must start with.
-if [ "$TICKETS" = "jira" ]; then
+if [ -n "$KEY" ] && [ "$TICKETS" != "github" ]; then
   PATTERN="^(${KEY}-[0-9]+[: ]|Merge |Revert )"
   EXAMPLE="${KEY}-12: add the invite link"
 else

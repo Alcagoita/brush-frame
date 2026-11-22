@@ -38,6 +38,8 @@ Clone this repository and tell your tool: *"Follow `plugin/skills/framework-setu
 | Ticket key on every commit and PR title (local hook + CI check) | AI | — |
 | Ticket system: GitHub Issues (labels, templates, practice issue) | AI | — |
 | Ticket system: Jira (project, "Won't do", practice ticket) | AI | Create the account. With Claude's Atlassian connector signed in, nothing more; without it, an API token set in your terminal |
+| Ticket system: any other board (Trello, Linear, Asana, …) with To do, In development, Testing, Done | AI guides you | Set up the board with the steps it gives you |
+| A board with the four columns (To do, In development, Testing, Done) | AI where the tool allows, guided steps where it doesn't | Rename or add a column or two, once |
 | AI review with CodeRabbit (config file) | AI | One click to install the app |
 | Secrets: `.gitignore` block, secret scanning and push protection | AI | — |
 | Rule file: `AGENTS.md`, imported by `CLAUDE.md` — created, or an existing one tidied (status copies, duplicates and stale rules proposed for removal, size before/after) | AI interviews you | Answer four questions, approve each change |
@@ -58,7 +60,9 @@ The first thing the helper asks is **"Have you built software before?"** Say *no
 - it runs each command with you and says what it does first;
 - the practice change is told as a short story, and nothing goes in until you say *merge*.
 
-You still log in to GitHub yourself and need a subscription to your AI tool.
+Before anything is built, the helper walks you through what only you can do, step by step for your computer (Mac, Windows or Linux): creating a free GitHub account, installing Git and GitHub's `gh` tool from their normal installers, and logging in to GitHub in the browser. It then sets your name on your work and lets Git publish to GitHub with that login, using GitHub's private email so yours isn't shown.
+
+You still need a subscription to your AI tool.
 
 ## Then, the first idea
 
