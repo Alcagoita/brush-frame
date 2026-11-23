@@ -73,7 +73,7 @@ Naming is often the hardest part, so never make it a blank to fill. Ask: **"Do y
 
 ## Phase 2 — Ask (one round, use a question tool if you have one)
 
-**First-time path:** ask only questions 1, 3, 5, 7 and 8, one at a time and in plain words. Question 5 is always asked, never decided for them: recommend Jira and let them choose (the wording is in `files/boards.md`, *Which one*). Decide the rest and say each choice in one line: the technical setup from what they are building (question 2), just them (question 4), a simple board with no sprints whatever tool they pick (question 5), and beta testers later (question 6). For question 3, explain public and private plainly: "Public: anyone can see the code, and GitHub's safety rules are free. Private: only you can see it, but some of those rules need a paid GitHub plan." If they are unsure, choose private and say which safety rule they won't have yet.
+**First-time path:** ask only questions 1, 3, 5, 7 and 8, one at a time and in plain words. Question 5 is always asked, never decided for them: recommend Jira and let them choose (the wording is in `files/boards.md`, *Which one*). Decide the rest and say each choice in one line: the technical setup from what they are building (question 2), just them (question 4), one task at a time while they learn the loop, which they can change whenever they like (question 9), a simple board with no sprints whatever tool they pick (question 5), and beta testers later (question 6). For question 3, explain public and private plainly: "Public: anyone can see the code, and GitHub's safety rules are free. Private: only you can see it, but some of those rules need a paid GitHub plan." If they are unsure, choose private and say which safety rule they won't have yet.
 
 **Experienced path:** ask these together, with a sensible default for each:
 
@@ -87,6 +87,7 @@ Naming is often the hardest part, so never make it a blank to fill. Ask: **"Do y
    - **A team: ask, and recommend it.** It's the easier case: say what it gives a team, then ask. "For a team I'd recommend Pigment. It shows the sprint by task, who's working on what right now, how long each task is taking against its estimate, and quiet sessions where someone may be stuck, and it logs worked time in Jira when a task reaches Testing. It keeps only numbers, never prompts or code. Shall I add it?"
    - **Just them: ask, with the reasons.** "Want Pigment? It sits beside the chat and tells you when the conversation is getting long, so you can carry on in a fresh session without losing anything (**Optimize now**). It also shows what each prompt and task costs. Only numbers, kept on this computer." Either way, it's only added on a yes. A no is a no: skip phase 11, don't bring it up again, and note it in the report.
 8. **Anonymous setup count:** "May I send one anonymous count to the framework author when setup finishes? It contains no data about you or the project, only +1." Ask; never assume yes.
+9. **One task at a time, or several?** Never decide it for an experienced person: some like one task until it's merged, others keep a few going. Solo: "Do you like to finish one task before starting the next, or keep several going at once?" Their answer is the project's rule. Team: don't make one rule for everyone. Ask "Does the team want one rule, or should each developer choose?" (recommend each developer choosing). For the setup owner, ask the solo question too and keep the answer in their own tool memory, not in the rule file. Either way, one task per branch and pull request.
 
 ## Phase 3 — Install the files
 
@@ -233,5 +234,6 @@ The project was set up already; this person is joining it, usually as a develope
 6. **Pigment, only if the project uses it** (`.pigment/config.json` exists): install it, then
    - `"storage": "cloud"`: "This project keeps its numbers in the team's cloud. Ask whoever set it up for the team key, then paste it in Pigment's pane when it asks." Pigment keeps counting until the key is in.
    - `"storage": "local"`: nothing to do; it counts on their computer.
-7. Show them the framework's build loop in three lines (ticket, branch, PR into `develop`, the decider merges), and offer a first ticket.
-8. Nothing is committed in this path unless they ask.
+7. **One task at a time, or several?** If `AGENTS.md` leaves it to each developer, ask: "Do you like to finish one task before starting the next, or keep several going at once?" Keep the answer in their own tool memory, never in the shared rule file. If the rule file sets one rule for the team, follow it and say so in one line.
+8. Show them the framework's build loop in three lines (ticket, branch, PR into `develop`, the decider merges), and offer a first ticket.
+9. Nothing is committed in this path unless they ask.

@@ -42,7 +42,11 @@ The project has two protected lanes: `develop`, where finished work comes togeth
 **Never:** push to `main` or `develop`, force-push a shared branch, rewrite published history, delete `main` or `develop`, or merge without the decider's word.
 
 ## Rules
-1. One ticket at a time. Do not start the next until the current PR is merged.
+1. <Tasks at a time, from phase 2 question 9, one of:
+   - "One ticket at a time. Do not start the next until the current PR is merged."
+   - "Several tickets at once are fine, each on its own branch and PR."
+   - Team, each choosing: "Each developer chooses one ticket at a time or several. Ask once, keep the answer in that person's own tool memory, and follow it.">
+   Whatever the choice: one ticket per branch and per PR. Never mix two tickets in one.
 2. The ticket is the spec. Nothing outside it. If something is unclear, propose a change to the ticket instead of guessing.
 3. Check the ticket's real status in the ticket system before starting. Never trust a copy.
 4. Never merge on your own. Merge only when the decider says so: <the owner | the product manager>.
