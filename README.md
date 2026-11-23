@@ -57,7 +57,7 @@ Then ask: **"Set up this project with Brush Frame."** No project folder yet? It 
 3. Asks **what you are building**, and the name (or helps you find one, with a quick look at whether it's taken).
 4. Shows the plan, runs every script with `--dry-run` first, then sets up: GitHub with `main` and `develop`, merge rules, tests on every change, a task reference on every commit, AI review and secret protection.
 5. Sets up a **task board** with **To do, In development, Testing, Done**: Jira is recommended (it's where this was proven, and free), and GitHub, Trello, Linear or any similar tool works. Where it can't build the board itself, it gives you the steps.
-6. Writes or tidies the project's rule file (`AGENTS.md`, imported by `CLAUDE.md`), including **Gitflow**: the AI runs task branches, releases and urgent fixes by itself, and you only say *merge* or *publish*.
+6. Writes or tidies the project's rule file (`CLAUDE.md` in Claude Code, `AGENTS.md` in Codex), including **Gitflow**: the AI runs task branches, releases and urgent fixes by itself, and you only say *merge* or *publish*.
 7. Suggests a few skills for what you build (nothing is installed without a yes), and asks whether you want **Pigment** (below): recommended for a team, offered when it's just you.
 8. Runs a practice change through the whole loop, told as a short story. You say *merge*.
 9. Asks for your idea, saves it in a decision ticket, shows it as a **quick mockup** if you'd like (in a calm, simple style unless you describe your own), then opens a chat to **talk it through** with a brand expert and a UX designer, or to **start sketching**.

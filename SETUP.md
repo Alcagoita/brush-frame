@@ -53,7 +53,7 @@ Clone this repository and tell your tool: *"Follow `plugin/skills/framework-setu
 | A board with the four columns (To do, In development, Testing, Done) | AI where the tool allows, guided steps where it doesn't | Rename or add a column or two, once |
 | AI review with CodeRabbit (config file) | AI | One click to install the app |
 | Secrets: `.gitignore` block, secret scanning and push protection | AI | — |
-| Rule file: `AGENTS.md`, imported by `CLAUDE.md` — created, or an existing one tidied (status copies, duplicates and stale rules proposed for removal, size before/after) | AI interviews you | Answer four questions, approve each change |
+| Rule file: `CLAUDE.md` in Claude Code, `AGENTS.md` in Codex — created, or an existing one tidied (status copies, duplicates and stale rules proposed for removal, size before/after) | AI interviews you | Answer four questions, approve each change |
 | Memory rules: where corrections, decisions and personal preferences go | AI | — |
 | Skills for what you build (web, mobile, backend): up to four suggestions | AI suggests | Pick the ones you want |
 | Beta platform (apps, optional) | AI guides | Log in, store accounts are yours |

@@ -1,6 +1,6 @@
 {
   "name": "framework-setup",
-  "description": "Set up a project for Brush Frame (step 4): Gitflow branches, merge rules, CI with unit tests, ticket-key commits, AI review, Jira or GitHub Issues, secrets protection and a shared AGENTS.md / CLAUDE.md.",
+  "description": "Set up a project for Brush Frame (step 4): Gitflow branches, merge rules, CI with unit tests, ticket-key commits, AI review, Jira or GitHub Issues, secrets protection and the project's rule file (CLAUDE.md, or AGENTS.md in Codex).",
   "version": "0.4.0",
   "author": {
     "name": "Olegário Nascimento"

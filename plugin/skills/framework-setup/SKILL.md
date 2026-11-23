@@ -1,6 +1,6 @@
 ---
 name: framework-setup
-description: Sets up a software project for Brush Frame (step 4, Setup) — Gitflow branches, merge rules, CI with unit tests, ticket-key commits, AI review, ticket system (Jira or GitHub Issues), secrets protection and a practice ticket — then takes the first idea, suggests skills for what is being built (web, mobile, backend), creates or tidies the shared AGENTS.md/CLAUDE.md rule file and its memory rules, and opens a brainstorm or design chat for the idea. Use when the user asks to set up, bootstrap or configure a project with Brush Frame or this framework. Works for someone who has never built software (it asks first, then explains in plain words and decides the technical choices) as well as for developers. The user only logs in, creates accounts and clicks app installs; you do the rest.
+description: Sets up a software project for Brush Frame (step 4, Setup) — Gitflow branches, merge rules, CI with unit tests, ticket-key commits, AI review, ticket system (Jira or GitHub Issues), secrets protection and a practice ticket — then takes the first idea, suggests skills for what is being built (web, mobile, backend), creates or tidies the project's rule file (CLAUDE.md in Claude Code, AGENTS.md in Codex) and its memory rules, and opens a brainstorm or design chat for the idea. Use when the user asks to set up, bootstrap or configure a project with Brush Frame or this framework. Works for someone who has never built software (it asks first, then explains in plain words and decides the technical choices) as well as for developers. The user only logs in, creates accounts and clicks app installs; you do the rest.
 ---
 
 # Framework setup
@@ -57,7 +57,7 @@ The first question of the setup is **"Have you built software before?"** (Yes / 
 4. If `gh` is not logged in, ask them to run `gh auth login --web --git-protocol https --scopes project` (in Claude Code: `! gh auth login --web --git-protocol https --scopes project`; `project` lets the setup make a GitHub board later without a second login): a code to copy, then **Authorize** in the browser. Wait until `gh auth status` succeeds.
 5. Run `scripts/git-identity.sh --dry-run`, then for real: their name and GitHub's private email on commits (only if Git has none yet), and Git allowed to push with the same login.
 6. Note whether `CLAUDE.md` or `AGENTS.md` already exist in the project (and any nested ones). You will come back to them in phase 10.
-7. **Already set up?** If the repository already has `.github/ticket-key-pattern` and an `AGENTS.md`, someone set this project up with the framework before. Ask: "This project is already set up. Are you joining it?" On yes, follow **Joining a project** at the end of this file instead of phases 2–13.
+7. **Already set up?** If the repository already has `.github/ticket-key-pattern` and a rule file (`CLAUDE.md` or `AGENTS.md`), someone set this project up with the framework before. Ask: "This project is already set up. Are you joining it?" On yes, follow **Joining a project** at the end of this file instead of phases 2–13.
 
 ## A name for it
 
@@ -177,10 +177,10 @@ Read `files/rule-file-checklist.md` and follow it.
    - two to four **promises** that make it unique ("What should it always or never do for the person using it?");
    - three to six **model facts** everything stands on ("What's true in it that everything else depends on?");
    - anything the AI must never do in this project.
-   Then write `AGENTS.md` from `files/AGENTS.template.md` with their answers and the choices from phase 2, and `CLAUDE.md` holding `@AGENTS.md`.
-2. **One exists:** ask **"I found a <CLAUDE.md>. Shall I tidy it and add what's missing, or leave it and start a separate one?"**
-   - *Tidy and add*: follow the checklist's update steps. Keep their content, add the missing sections, propose removals one by one with the reason, and say the size before and after.
-   - *Separate one*: write `AGENTS.md` fresh, and add `@AGENTS.md` at the top of their existing `CLAUDE.md` with their OK.
+   Then write the rule file from `files/rule-file.template.md` with their answers and the choices from phase 2. **One file, for the tool running the setup:** `CLAUDE.md` in Claude Code, `AGENTS.md` in Codex. Never both just in case.
+2. **One exists:**
+   - *This tool's file* (`CLAUDE.md` in Claude Code, `AGENTS.md` in Codex): ask **"I found a <CLAUDE.md>. Shall I tidy it and add what's missing?"** Then follow the checklist's update steps: keep their content, add the missing sections, propose removals one by one with the reason, and say the size before and after.
+   - *Only the other tool's file*: someone already uses that tool, so the rules stay in one place both can read. In Claude Code with only an `AGENTS.md`: tidy `AGENTS.md`, and write `CLAUDE.md` holding `@AGENTS.md`. In Codex with only a `CLAUDE.md` (Codex can't import it): ask before moving its content into `AGENTS.md` and leaving `CLAUDE.md` as `@AGENTS.md`.
 3. Either way, include the **Memory** section, so every tool files corrections, decisions and personal preferences in the same places.
 4. Show the files, then commit them on a branch (`<KEY>-0-rule-file` or `0-rule-file`) and open a PR into `develop`.
 
@@ -211,7 +211,7 @@ Commit `.pigment/` and `.claude/settings.json` on a branch (`<KEY>-0-pigment` or
    - **Start sketching**: straight to the design, one simple question to begin. If there's a first-look mockup, start from it and from what they said about it. Mention what they are building ("a first screen for the phone").
    - **Not now**: it's saved in the ticket; it can wait.
 2. Ask where, once: "Open it in Claude or in ChatGPT?" Default to Claude in Claude Code and ChatGPT in Codex. Offer "right here" too: then run the same conversation in this session instead of opening a window.
-3. Write the idea to a temporary file, and the context (what they are building, the main idea, promises and model facts from `AGENTS.md`) to another, then run:
+3. Write the idea to a temporary file, and the context (what they are building, the main idea, promises and model facts from the rule file) to another, then run:
    `scripts/open-idea.sh --mode <brainstorm|design> --where <claude|chatgpt> --idea-file <file> --context-file <file> --ticket <ticket ref>`
    It opens a new chat already started and copies the prompt to the clipboard in case the chat opens empty. Delete the temporary files afterwards.
 
@@ -225,7 +225,8 @@ Commit `.pigment/` and `.claude/settings.json` on a branch (`<KEY>-0-pigment` or
 
 The project was set up already; this person is joining it, usually as a developer. Do only what is personal to their computer. Change nothing shared without asking.
 
-1. Read `SETUP_REPORT.md` and `AGENTS.md` so you know the ticket system, the branch rules and the recommended skills.
+1. Read `SETUP_REPORT.md` and the rule file (`CLAUDE.md` or `AGENTS.md`) so you know the ticket system, the branch rules and the recommended skills.
+   - **Their tool can't read it** (the project has only the other tool's file): the rules should stay in one place both can read. Ask first, since it's shared, then do it through a PR. Claude Code with only an `AGENTS.md`: add `CLAUDE.md` holding `@AGENTS.md`. Codex with only a `CLAUDE.md`: move its content into `AGENTS.md` and leave `CLAUDE.md` as `@AGENTS.md`.
 2. Run `scripts/check-tools.sh`; make sure `gh` is logged in.
 3. Turn on the commit hook for this clone: `git config core.hooksPath .githooks`.
 4. Ticket system access: GitHub Issues needs nothing more. Jira: send them to the project's Jira site to accept the invite, and, only if they will use the scripts, set the `JIRA_*` variables in their own terminal.

@@ -176,7 +176,7 @@ This way of working needs a lot of thinking ahead, and that can be tiring. Witho
 - [ ] **Merge rules:** a PR is required, checks must pass, and only the decider merges.
 - [ ] **Unit tests** running on every PR.
 - [ ] **AI review** on every PR.
-- [ ] **A rule file for each AI tool** (for example CLAUDE.md for Claude, AGENTS.md for Codex), started from the [starter rule file](templates/starter-rule-file.md) and kept in step: the shared rules in `AGENTS.md`, and `CLAUDE.md` importing it. If one already exists, tidy it instead of replacing it: keep what's there, add what's missing, and remove status copies, rules said twice and rules whose reason is gone. Versioned, privately if needed.
+- [ ] **A rule file for the AI tool the project uses** (CLAUDE.md for Claude, AGENTS.md for Codex), started from the [starter rule file](templates/starter-rule-file.md). One file is enough. If people use both tools, keep the rules in `AGENTS.md` and have `CLAUDE.md` import it. If one already exists, tidy it instead of replacing it: keep what's there, add what's missing, and remove status copies, rules said twice and rules whose reason is gone. Versioned, privately if needed.
 - [ ] **Memory rules:** say where things go, so every tool files them the same way. Corrections for everyone become rules in the rule file; decisions go in tickets; personal preferences stay in each person's own tool memory; ticket status, keys and tokens go nowhere.
 - [ ] **Skills for what you build:** a few AI skills or plugins that fit the platform (web, mobile, backend), chosen by the person, never installed by default.
 - [ ] **A beta platform:** a way to send test builds to testers before any store release, and to collect their crashes and reports. Firebase is one option; app stores also offer their own testing channels.
@@ -192,7 +192,7 @@ This way of working needs a lot of thinking ahead, and that can be tiring. Witho
 
 Setup runs once per project, usually by whoever owns it. Someone joining later only sets up their own computer:
 
-1. Clone the repository and read `AGENTS.md` (the rule file) and the setup report.
+1. Clone the repository and read the rule file (`CLAUDE.md` or `AGENTS.md`) and the setup report.
 2. Turn on the commit hook for the clone (`git config core.hooksPath .githooks`) and log in to the tools the project uses: GitHub, the ticket system.
 3. Install the skills the setup report recommends, if they help.
 4. If the project shares a cost view or another team tool, ask the setup owner for the access key; keys are passed privately, never through the repository.

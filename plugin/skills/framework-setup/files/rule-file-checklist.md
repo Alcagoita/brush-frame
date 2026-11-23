@@ -6,21 +6,21 @@ The rule file is what every AI session reads first. Short and true beats long an
 
 | What | Where | Why |
 |---|---|---|
-| Product idea, promises, model facts, workflow, rules | `AGENTS.md` | Shared, versioned, read by Codex; `CLAUDE.md` imports it with `@AGENTS.md` |
-| Claude-only notes (a Claude tool, a Claude command) | `CLAUDE.md`, under the import | Codex never needs them |
+| Product idea, promises, model facts, workflow, rules | the rule file: `CLAUDE.md` for Claude Code, `AGENTS.md` for Codex | One file, for the tool the project uses. Both only when people use both tools: then the rules live in `AGENTS.md` and `CLAUDE.md` holds `@AGENTS.md` |
+| Claude-only notes, when both files exist | `CLAUDE.md`, under the import | Codex never needs them |
 | Decisions and their reasons | the decision ticket | The ticket is the memory; the rule file links it |
 | Ticket status, sprint progress, "what we're doing now" | nowhere in the rule file | It goes stale within days and misleads the AI; the ticket system holds status |
 | One person's preferences ("explain less", "answer in Portuguese") | the AI tool's own memory | Personal, not the team's |
-| Long reference (API notes, data rules for one folder) | a file in that folder, e.g. `api/AGENTS.md`, or `docs/` linked from the rule file | Read when work touches it, not in every session |
+| Long reference (API notes, data rules for one folder) | a file in that folder, e.g. `api/CLAUDE.md` (`api/AGENTS.md` in Codex), or `docs/` linked from the rule file | Read when work touches it, not in every session |
 
 ## When there is none: create
 
-Write `AGENTS.md` from `AGENTS.template.md` with the interview answers, and `CLAUDE.md` holding `@AGENTS.md`.
+Write the rule file from `rule-file.template.md` with the interview answers: `CLAUDE.md` in Claude Code, `AGENTS.md` in Codex. Only that one.
 
 ## When one exists: update, never overwrite
 
 1. Read the existing `CLAUDE.md`, `AGENTS.md` and any nested ones whole. Keep the person's content; it is theirs.
-2. If only `CLAUDE.md` exists, offer to move its shared content into `AGENTS.md` and leave `CLAUDE.md` as `@AGENTS.md` plus any Claude-only notes, so Codex reads the same rules. Their choice; if they say no, add the framework sections to `CLAUDE.md` itself.
+2. Update the file this tool reads. If the project has only the other tool's file, keep the rules in one place both read: `AGENTS.md`, with `CLAUDE.md` holding `@AGENTS.md`. Moving content out of an existing `CLAUDE.md` is their choice; if they say no, add the framework sections where they are.
 3. Add what is missing from the template: main idea, product promises, model facts, workflow (ticket key, branches, merge rule), the numbered rules, a Corrections section.
 4. Propose removals, each with its reason, and remove only the ones they agree to:
    - status copies (ticket states, sprint tables, "current work");

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+One rule file, for the tool you set up with: `CLAUDE.md` in Claude Code, `AGENTS.md` in Codex, instead of both every time. Both appear only when a project already has the other tool's file, or when someone joins with the other tool, with the rules kept in one place.
+
 Pigment in the setup, always asked first: recommended for a team (the sprint by task, who's working now, time against estimates, worked time to Jira), and offered with its reasons to someone alone (it says when a conversation is getting long, so they can carry on fresh with Optimize now). The project's settings offer it to everyone who opens the project, so it installs from the desktop app too.
 
 ## 0.4 — 2026-11-22
