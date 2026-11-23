@@ -202,7 +202,7 @@ Setup runs once per project, usually by whoever owns it. Someone joining later o
 
 **Why:** the same short loop for every change, so each one is traceable and reviewed.
 
-**Who:** solo, the owner and the AI, one ticket at a time. Team: each developer with their own AI, one ticket each.
+**Who:** solo, the owner and the AI. Team: each developer with their own AI. One ticket at a time or several is each person's choice, asked in setup; each ticket always has its own branch and PR.
 
 **Input:** one ticket from the current cycle.
 
@@ -215,7 +215,7 @@ Setup runs once per project, usually by whoever owns it. Someone joining later o
 5. Open a PR and move the ticket to in review.
 6. AI review runs; fixes are committed and pushed straight away, so the PR always shows the current state.
 7. The decider says merge. Merge, then close the ticket.
-8. Only then start the next ticket.
+8. Start the next ticket: after this merge for someone who keeps to one at a time, or alongside it for someone who works on several.
 
 **Output:** one merged PR and one closed ticket.
 
@@ -320,7 +320,7 @@ A service that becomes too expensive or too limiting is an idea like any other: 
 - **Status copied into rule files:** it goes stale and misleads the AI. The ticket system holds status.
 - **Running a job over all the data first:** a small sample finds the mistakes cheaply.
 - **Accepting an AI answer because it reads well.**
-- **Starting the next ticket before the current one is merged.**
+- **Two tickets in one branch or PR:** the review can't tell them apart, and neither can be undone alone.
 - **Sending the AI to hunt a bug without a diagnosis.**
 - **Making money in a way that breaks a product promise.**
 
