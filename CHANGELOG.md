@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+Codex installs the setup helper as a plugin: `codex plugin marketplace add Alcagoita/brush-frame`, then install it from the ChatGPT desktop app. The same `plugin/` folder and skill serve Claude Code and Codex. Copying the skill by hand still works.
+
 One rule file, for the tool you set up with: `CLAUDE.md` in Claude Code, `AGENTS.md` in Codex, instead of both every time. Both appear only when a project already has the other tool's file, or when someone joins with the other tool, with the rules kept in one place.
 
 One task at a time is no longer a rule for everyone. The setup asks: someone alone chooses one task at a time or several, and a team can let each developer choose, kept in that person's own memory, with the question asked again when someone joins. People new to building start with one at a time and can change it. Each task still has its own branch and pull request.
