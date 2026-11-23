@@ -87,4 +87,4 @@ It works if it has the four columns (or statuses) and a short reference per task
 2. Find the task's reference: a key like `ABC-12` (`--tickets other --key ABC`) or a number like `#12` (`--tickets other`).
 3. No reference at all? Number the tasks yourself in their titles (`#1 …`, `#2 …`) and use `#12`.
 
-Write the tool, its link and the reference style in `SETUP_REPORT.md` and `AGENTS.md`, so every session knows where tasks live.
+Write the tool, its link and the reference style in `SETUP_REPORT.md` and the rule file, so every session knows where tasks live.

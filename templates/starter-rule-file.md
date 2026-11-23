@@ -1,6 +1,6 @@
 # Starter rule file
 
-Used in step 4. One per AI tool, same content in each. It grows in step 7; keep it short enough that every rule is read.
+Used in step 4, as `CLAUDE.md` for Claude or `AGENTS.md` for Codex. One file; both only when people use both tools, with `CLAUDE.md` importing `AGENTS.md`. It grows in step 7; keep it short enough that every rule is read.
 
 ```markdown
 # <Project> — rules for the AI
