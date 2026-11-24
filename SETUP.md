@@ -25,6 +25,16 @@ Then ask: **"Set up this project with Brush Frame."** (or run the `framework-set
 
 ### Codex
 
+Add Brush Frame's marketplace once:
+
+```bash
+codex plugin marketplace add Alcagoita/brush-frame
+```
+
+Then restart the ChatGPT desktop app, open the **Plugins Directory**, choose **Brush Frame** and install **Brush Frame setup**. Open your project folder in Codex and ask: **"Set up this project with Brush Frame."**
+
+No desktop app? Copy the skill into Codex's skills folder instead:
+
 ```bash
 git clone --depth 1 https://github.com/Alcagoita/brush-frame /tmp/brush-frame \
   && mkdir -p ~/.codex/skills \
@@ -32,7 +42,7 @@ git clone --depth 1 https://github.com/Alcagoita/brush-frame /tmp/brush-frame \
   && rm -rf /tmp/brush-frame
 ```
 
-Restart Codex in your project folder and ask: **"Set up this project with Brush Frame."**
+Then restart Codex in your project folder and ask the same.
 
 ### Any other AI coding tool
 
