@@ -1,0 +1,25 @@
+{
+  "name": "framework-setup",
+  "version": "0.4.0",
+  "description": "Set up a project for Brush Frame (step 4): Gitflow branches, merge rules, CI with unit tests, ticket-key commits, AI review, a ticket system, secrets protection and the project's rule file (AGENTS.md in Codex).",
+  "author": {
+    "name": "Olegário Nascimento",
+    "url": "https://github.com/Alcagoita/brush-frame"
+  },
+  "homepage": "https://github.com/Alcagoita/brush-frame",
+  "repository": "https://github.com/Alcagoita/brush-frame",
+  "license": "CC0-1.0",
+  "keywords": ["setup", "gitflow", "workflow", "ai-assisted development"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Brush Frame setup",
+    "shortDescription": "Set up a project, step by step",
+    "longDescription": "Brush Frame is a human-led way to build software with AI. This helper does its setup step for a project: GitHub branches and merge rules, CI with unit tests, ticket keys in commits, AI review, a ticket system and the project's rule file. Then it takes your first idea to a brainstorm or a design. You log in and decide; the AI does the rest.",
+    "developerName": "Olegário Nascimento",
+    "category": "Productivity",
+    "capabilities": [],
+    "websiteURL": "https://github.com/Alcagoita/brush-frame",
+    "supportURL": "https://github.com/Alcagoita/brush-frame/issues",
+    "defaultPrompt": ["Set up this project with Brush Frame."]
+  }
+}
