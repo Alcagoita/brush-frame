@@ -95,7 +95,7 @@ Naming is often the hardest part, so never make it a blank to fill. Ask: **"Do y
 2. Dry run, then real run:
    `scripts/install-files.sh --stack <node|python|other> --tickets <github|jira|other> [--key <KEY>] --mode <solo|team>` (`--key` for Jira, and for another tool whose tasks look like `KEY-12`)
    It writes the CI workflow (`test` job), the ticket-key check (`ticket-key` job), the PR template, issue templates (GitHub Issues) or ticket templates in `docs/templates/` (Jira), `.coderabbit.yaml`, a `commit-msg` hook in `.githooks/` (on through `core.hooksPath`) and a secrets block in `.gitignore`. Existing files are never overwritten.
-3. Commit on `main` as `<KEY>-0: framework setup` (a key) or `#0: framework setup` (numbered tasks). `-0` / `#0` is the setup's own ticket key; the hook accepts it.
+3. Commit on `main` as `<KEY>-0: framework setup` (a key) or `#0: framework setup` (numbered tasks). `-0` / `#0` is the setup's own ticket key, for the setup only: phase 14 closes it, and from then on the hook and the check refuse it.
 
 ## Phase 4 — GitHub
 
@@ -218,7 +218,7 @@ Commit `.pigment/` and `.claude/settings.json` on a branch (`<KEY>-0-pigment` or
 
 ## Phase 14 — Report, count, close
 
-1. Write `SETUP_REPORT.md`: the framework's step 4 checklist, each item ticked or marked with what is still waiting on the user and the exact link; the skills installed; the rule file created or updated; where Pigment keeps its numbers, if they chose it. End it with a **For developers joining** section: install the AI tool, clone the repo, run the setup skill (it finds the project already set up), and, if Pigment's numbers live in the cloud, ask the setup owner for the team key. Commit it in its own PR.
+1. Write `SETUP_REPORT.md`: the framework's step 4 checklist, each item ticked or marked with what is still waiting on the user and the exact link; the skills installed; the rule file created or updated; where Pigment keeps its numbers, if they chose it. End it with a **For developers joining** section: install the AI tool, clone the repo, run the setup skill (it finds the project already set up), and, if Pigment's numbers live in the cloud, ask the setup owner for the team key. In the same PR, close the setup key: dry run, then real run, `scripts/close-setup-key.sh`. Say it in one line: "From now on every change starts with its own task, docs and plans included; `<KEY>-0` was only for the setup." Commit both in this PR, the setup's last one with `-0`.
 2. Only if the user said yes in phase 2: run `scripts/count-install.sh`. It sends one request with no body and no project data. If it fails, ignore it; it never blocks setup.
 3. Close with one line in the same voice, e.g. "It's open in your browser. When you've decided, paste the outcome into <ticket> — I'll be here for the next step." Then a short list of anything still waiting on them.
 

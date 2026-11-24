@@ -15,6 +15,7 @@ Every AI session in this project reads this file first. Built on Brush Frame: ht
 - Tasks live in: <Jira project KEY | GitHub Issues | the tool's name and link>. No work without a task.
 - The board has four columns: **To do, In development, Testing, Done**. Move the task yourself: **In development** when you start, **Testing** when the pull request opens, **Done** when it merges. If the tool can't be reached from here, tell the person which column to move it to.
 - Every commit and pull request title starts with the task's reference: `<KEY-12: … | #12: …>`. A hook and a CI check enforce it.
+- Every change starts with its own task, docs, plans and decisions included. No task yet? Ask the person, or create it, before the branch. Work that spans several tasks gets a task of its own. `<KEY-0 | #0>` was only for the setup, and the checks refuse it now.
 - Checks `test` and `ticket-key` must pass. AI review runs on every pull request; commit and push its fixes straight away.
 
 ## Gitflow: you run it, the person never has to
