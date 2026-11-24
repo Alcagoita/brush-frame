@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+The setup's own key (`KEY-0`) ends with the setup. Its last pull request closes it, so the commit hook and the ticket-key check accept only real tasks from then on, and the rule file says every change starts with its own task, docs and plans included. Before, `KEY-0` stayed open and became the key for any work without a task. The hook and the check now read the pattern from the last commit and the base branch, so the change that closes it still passes.
+
 Codex installs the setup helper as a plugin: `codex plugin marketplace add Alcagoita/brush-frame`, then install it from the ChatGPT desktop app. The same `plugin/` folder and skill serve Claude Code and Codex. Copying the skill by hand still works.
 
 One rule file, for the tool you set up with: `CLAUDE.md` in Claude Code, `AGENTS.md` in Codex, instead of both every time. Both appear only when a project already has the other tool's file, or when someone joins with the other tool, with the rules kept in one place.
